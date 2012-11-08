@@ -45,6 +45,7 @@
 		C1FCE623164C1772002E0401 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE618164C1772002E0401 /* AFURLConnectionOperation.m */; };
 		C1FCE624164C1772002E0401 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE61A164C1772002E0401 /* AFXMLRequestOperation.m */; };
 		C1FCE625164C1772002E0401 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE61C164C1772002E0401 /* UIImageView+AFNetworking.m */; };
+		C1FCE629164C1E73002E0401 /* FloatingLayerGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE628164C1E73002E0401 /* FloatingLayerGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		C1FCE61B164C1772002E0401 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		C1FCE61C164C1772002E0401 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		C1FCE626164C1799002E0401 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		C1FCE627164C1E73002E0401 /* FloatingLayerGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingLayerGenerator.h; sourceTree = "<group>"; };
+		C1FCE628164C1E73002E0401 /* FloatingLayerGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingLayerGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +292,8 @@
 		C1FCE5EB164C15F6002E0401 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				C1FCE627164C1E73002E0401 /* FloatingLayerGenerator.h */,
+				C1FCE628164C1E73002E0401 /* FloatingLayerGenerator.m */,
 				C1FCE5EC164C15F6002E0401 /* TSLayerVisuals.h */,
 				C1FCE5ED164C15F6002E0401 /* TSLayerVisuals.m */,
 				C1FCE5EE164C15F6002E0401 /* TSPageControlComponent.h */,
@@ -418,6 +423,7 @@
 				C1FCE623164C1772002E0401 /* AFURLConnectionOperation.m in Sources */,
 				C1FCE624164C1772002E0401 /* AFXMLRequestOperation.m in Sources */,
 				C1FCE625164C1772002E0401 /* UIImageView+AFNetworking.m in Sources */,
+				C1FCE629164C1E73002E0401 /* FloatingLayerGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

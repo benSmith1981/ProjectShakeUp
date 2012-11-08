@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PSViewController : UIViewController
+@interface PSViewController : UIViewController<UIGestureRecognizerDelegate>
+{
+NSMutableArray *floatingViews;
+UIPanGestureRecognizer *panRecognizer;
+UITapGestureRecognizer *tapRecognizer;
 
+BOOL objectMoving;
+UIView *activeLayer;
+
+CGFloat _firstX;
+CGFloat _firstY;
+}
 @end
