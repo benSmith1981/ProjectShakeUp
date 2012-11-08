@@ -1,0 +1,3 @@
+[submodule "App/ProjectShakeUp/DataLayer/AFNetworking"]
+	path = App/ProjectShakeUp/DataLayer/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
