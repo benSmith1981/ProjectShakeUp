@@ -1,0 +1,21 @@
+//
+//  TSServiceKeys.m
+//  TheSun
+//
+//  Created by Martin Lloyd on 7/18/12.
+//  Copyright (c) 2012 NewsInternational. All rights reserved.
+//
+
+#import "TSServiceKeys.h"
+
+@implementation TSServiceKeys
+
+NSString *kCONFIGURATION_SERVICE_KEY = @"CONFIGURATION_LIST_SERVICE_KEY";
+NSString *kMENULIST_SERVICE_KEY = @"MENULIST_SERVICE_KEY";
+NSString *kFEED_SERVICE_KEY = @"FEED_SERVICE_KEY";
+NSString *kSUBSCRIPTION_SERVICE_AUTH_KEY = @"KSUBSCRIPTION_SERVICE_AUTH_KEY";
+NSString *kSUBSCRIPTION_SERVICE_GEN_COOKIE_KEY = @"kSUBSCRIPTION_SERVICE_GEN_COOKIE_KEY";
+NSString *kSUBSCRIPTION_SERVICE_FEED_URL_KEY = @"kSUBSCRIPTION_SERVICE_FEED_URL_KEY";
+
+
+@end
