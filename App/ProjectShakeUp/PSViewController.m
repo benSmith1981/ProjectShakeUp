@@ -39,6 +39,8 @@
         TSFeed* feed = (TSFeed*)[[notification userInfo] objectForKey:kNOTIFICATION_DATA];
         TSArticle* article = (TSArticle*)[feed.articles objectAtIndex:0];
         Debug(@"%@", article.title);
+        Debug(@"%@", article.url);
+        Debug(@"%@", article.story);
     }
 }
 

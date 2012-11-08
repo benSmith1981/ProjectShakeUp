@@ -14,6 +14,9 @@
 #import "Logging.h"
 
 @interface TSFeedParser ()
+{
+    TSArticle* article;
+}
 @property (nonatomic, strong) TSFeed* feed;
 @property (nonatomic, strong) NSString* currentElement;
 @property (nonatomic, strong) NSThread* xmlParseThread;
@@ -62,10 +65,17 @@
     if (_feed.title==nil && [_currentElement isEqualToString:@"title"]) {
         [_feed setTitle:string];
     }
-    else if([_currentElement isEqualToString:@"title"] && ![string isEqualToString:@"\n"]) {
-        TSArticle* article = [[TSArticle alloc] initWithArticleTitle:string];
-//        Debug(@"%@ -> %@", _currentElement, string);
-        [self.feed.articles addObject:article];
+    else if(![string isEqualToString:@"\n"]) {
+        if([_currentElement isEqualToString:@"title"]) {
+            article = [[TSArticle alloc] initWithArticleTitle:string];
+            [self.feed.articles addObject:article];
+        }
+        else if([_currentElement isEqualToString:@"enclosure"]) {
+            [article setUrl:string];
+        }
+        else if([_currentElement isEqualToString:@"tol-text:story"]) {
+            [article setStory:string];
+        }
     }
 }
 

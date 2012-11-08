@@ -7,8 +7,10 @@
 //
 
 #import "PSAppDelegate.h"
-
+#import "TSFeed.h"
 #import "PSViewController.h"
+#import "AFNetworkActivityIndicatorManager.h"
+
 
 @implementation PSAppDelegate
 
@@ -19,6 +21,10 @@
     self.viewController = [[PSViewController alloc] initWithNibName:@"PSViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    [TSFeed getFeed:@"http://www.thesun.co.uk/sol/homepage/feeds/smartphone/topstories/"];
+    
     return YES;
 }
 
