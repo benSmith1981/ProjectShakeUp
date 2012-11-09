@@ -7,10 +7,20 @@
 //
 
 #import "PSCell.h"
+#import "TSArticle.h"
+#import "UIImageView+AFNetworking.h"
 #import "TSLayerVisuals.h"
 
+@interface PSCell()
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+
+- (IBAction)tapped:(id)sender;
+@end
+
 @implementation PSCell
-@synthesize delegate;
+@synthesize delegate = _delegate;
+@synthesize article = _article;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -32,8 +42,15 @@
 }
 */
 
+- (void)load
+{
+    [self.title setText:self.article.title];
+    NSURL* url = [NSURL URLWithString:self.article.url];
+    [self.image setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+}
+
 - (IBAction)tapped:(id)sender
 {
-    [delegate cellTappedWithCell:self];
+    [self.delegate cellTappedWithCell:self];
 }
 @end

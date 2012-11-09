@@ -10,7 +10,6 @@
 #import "TSFeed.h"
 #import "TSArticle.h"
 #import "Logging.h"
-#import "UIImageView+AFNetworking.h"
 #import "PSDetailedViewController.h"
 
 @interface PSViewController ()
@@ -136,9 +135,9 @@
         NSUInteger index = [[randomNumbers objectAtIndex:i] integerValue];
         article = [self.feed.articles objectAtIndex:index];
         i++;
-        [cell.title setText:article.title];
-        NSURL* url = [NSURL URLWithString:article.url];
-        [cell.image setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+        
+        [cell setArticle:article];
+        [cell load];
     }
 }
 
@@ -146,7 +145,9 @@
 #pragma PSCellDelegate
 - (void)cellTappedWithCell:(PSCell*)cell
 {
+    self.detailedView = nil;
     self.detailedView = [[PSDetailedViewController alloc] initWithFrame:cell.frame];
+    [self.detailedView setArticle:cell.article];
 
     [self.view addSubview:self.detailedView.view];
     
