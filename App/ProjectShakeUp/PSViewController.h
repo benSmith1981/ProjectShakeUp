@@ -20,4 +20,5 @@
 //CGFloat _firstX;
 //CGFloat _firstY;
 }
+- (IBAction)shakeButtonPressed:(id)sender;
 @end

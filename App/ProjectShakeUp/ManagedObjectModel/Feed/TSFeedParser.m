@@ -54,6 +54,10 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
     _currentElement = elementName;
+    
+    if([_currentElement isEqualToString:@"enclosure"] && article.url == nil) {
+        [article setUrl:[attributeDict objectForKey:@"url"]];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -69,9 +73,6 @@
         if([_currentElement isEqualToString:@"title"]) {
             article = [[TSArticle alloc] initWithArticleTitle:string];
             [self.feed.articles addObject:article];
-        }
-        else if([_currentElement isEqualToString:@"enclosure"]) {
-            [article setUrl:string];
         }
         else if([_currentElement isEqualToString:@"tol-text:story"]) {
             [article setStory:string];
