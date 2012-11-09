@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class TSArticle;
+
 @interface PSDetailedViewController : UIViewController
+
+@property (weak, nonatomic) TSArticle *article;
+
 - (id)initWithFrame:(CGRect)frame;
 - (void)animate;
-- (IBAction)closeButtonPressed:(id)sender;
 
 @end
