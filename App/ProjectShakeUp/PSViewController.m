@@ -65,16 +65,18 @@
     }
     
     //CURRENTLY I CAN'T GET THIS TO WORK SO I COMMENTED IT OUT, MAYBE YOU CAN HELP MARTIN? I AM NOT SURE HOW TO MOVE VIEWS WITH PANGESTURE RECOGNISER, I JUST THOUGHT IT WOUDL BE NICE TO HAVE THIS IN...
-//    //Setup array of floating views and active layer
-//    activeLayer = [[UIView alloc]init];
-//    floatingViews = [[NSArray alloc]initWithObjects:topLeftView,topRightView,middleView,bottomLeftView,bottonRightView, nil];
-//
-//    //setup pan gesture to pick up
-//    panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-//    [panRecognizer setMinimumNumberOfTouches:1];
-//    [panRecognizer setMaximumNumberOfTouches:1];
-//    [panRecognizer setDelegate:self];
-//    [self.view addGestureRecognizer:panRecognizer];
+    //Setup array of floating views and active layer
+    activeLayer = [[UIView alloc]init];
+    floatingViews = [[NSArray alloc]initWithObjects:topLeftView,topRightView,middleView,bottomLeftView,bottonRightView, nil];
+
+    //setup pan gesture to pick up
+    panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
+    [panRecognizer setMinimumNumberOfTouches:1];
+    [panRecognizer setMaximumNumberOfTouches:1];
+    [panRecognizer setDelegate:self];
+    [bottonRightView addGestureRecognizer:panRecognizer];
+    [bottomLeftView addGestureRecognizer:panRecognizer];
+    [self.view addGestureRecognizer:panRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -174,7 +176,17 @@
     
     UIPanGestureRecognizer *gestureRecogniser = (UIPanGestureRecognizer*)sender;
     
-
+    CGPoint touchPoint = [gestureRecogniser locationInView:self.view];
+    
+    for (PSCell *floatingView in floatingViews) {
+        if (CGRectContainsPoint(floatingView.frame, touchPoint))
+        {
+            activeLayer = floatingView;
+            
+        }
+    }
+    [self.view bringSubviewToFront:activeLayer];
+    
 
     CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
 
@@ -184,7 +196,7 @@
     }
     
     translatedPoint = CGPointMake(_firstX+translatedPoint.x, _firstY+translatedPoint.y);
-    [gestureRecogniser.view setCenter:translatedPoint];
+    [activeLayer setCenter:translatedPoint];
 }
 
 #pragma mark
