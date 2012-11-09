@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface FloatingLayerGenerator : UIView{
-    CGFloat _lastRotation;
 
 }
 

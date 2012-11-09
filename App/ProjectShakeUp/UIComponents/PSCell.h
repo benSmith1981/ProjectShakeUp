@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PSCell : UIView
+@property (nonatomic)CGFloat _lastRotation;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @end

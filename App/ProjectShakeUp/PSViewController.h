@@ -10,15 +10,14 @@
 
 @interface PSViewController : UIViewController<UIGestureRecognizerDelegate>
 {    
-//NSMutableArray *floatingViews;
-//UIPanGestureRecognizer *panRecognizer;
-//UITapGestureRecognizer *tapRecognizer;
-//
+NSArray *floatingViews;
+UIPanGestureRecognizer *panRecognizer;
+
 //BOOL objectMoving;
-//UIView *activeLayer;
+UIView *activeLayer;
 //
-//CGFloat _firstX;
-//CGFloat _firstY;
+CGFloat _firstX;
+CGFloat _firstY;
 }
 - (IBAction)shakeButtonPressed:(id)sender;
 @end
