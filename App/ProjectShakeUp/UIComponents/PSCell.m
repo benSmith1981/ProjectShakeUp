@@ -37,56 +37,33 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         // Initialization code
         self.frame = frame;
         [TSLayerVisuals applyDropShadow:self];
-        [self createGestureRecogniserForView:self];
+        
+        self.image.layer.borderWidth = 1.0f;
+        self.image.layer.borderColor = [UIColor blackColor].CGColor;
+        
+        UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
+        [panRecognizer setMinimumNumberOfTouches:1];
+        [panRecognizer setMaximumNumberOfTouches:1];
+        [panRecognizer setDelegate:self];
+        [self addGestureRecognizer:panRecognizer];
     }
     return self;
 }
 
--(void)floatingAnimation{
-    
+-(void)floatingAnimation
+{    
     [UIView animateWithDuration:1.0
                           delay:0
                         options: UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionAllowUserInteraction
-                     animations:^{
-//                         
-//                         int randomMoveNumber = -3 + rand() % (3+3);
-//
-//                         self.center = CGPointMake(self.center.x + randomMoveNumber,
-//                                                             self.center.y);
-                         
+                     animations:^{                         
                          int randomRotateNumber = -10 + rand() % (10+10);
                          CGAffineTransform transform = CGAffineTransformMakeRotation(DegreesToRadians(randomRotateNumber));
                          self.transform = transform;
                      }
-                     completion:NULL];
+                     completion:nil];
 }
 
--(void)createGestureRecogniserForView:(UIView*)newsView{
-    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-    [panRecognizer setMinimumNumberOfTouches:1];
-    [panRecognizer setMaximumNumberOfTouches:1];
-    [panRecognizer setDelegate:self];
-    [newsView addGestureRecognizer:panRecognizer];
-    
-}
-
-
-#pragma mark UIGestureRegognizerDelegate
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return ![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ![gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]];
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    
-    if ([touch.view isKindOfClass:[UIButton class]]) {      //change it to your condition
-        return NO;
-    }
-    return YES;
-}
-
-#pragma mark Gesture recognizer actions
-
+#pragma mark GestureRecognizerActions
 -(void)move:(id)sender{
     
     UIPanGestureRecognizer *gestureRecogniser = (UIPanGestureRecognizer*)sender;
