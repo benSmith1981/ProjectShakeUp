@@ -49,6 +49,8 @@
 		C1FCE62C164C21B1002E0401 /* PSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE62B164C21B1002E0401 /* PSCell.m */; };
 		C1FCE62E164C21C6002E0401 /* PSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE62D164C21C6002E0401 /* PSCell.xib */; };
 		C1FCE630164D0950002E0401 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE62F164D0950002E0401 /* placeholder.jpg */; };
+		C1FCE639164D287C002E0401 /* PSDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE637164D287B002E0401 /* PSDetailedViewController.m */; };
+		C1FCE63A164D287C002E0401 /* PSDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE638164D287C002E0401 /* PSDetailedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,9 @@
 		C1FCE62B164C21B1002E0401 /* PSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCell.m; sourceTree = "<group>"; };
 		C1FCE62D164C21C6002E0401 /* PSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSCell.xib; sourceTree = "<group>"; };
 		C1FCE62F164D0950002E0401 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
+		C1FCE636164D287B002E0401 /* PSDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDetailedViewController.h; sourceTree = "<group>"; };
+		C1FCE637164D287B002E0401 /* PSDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDetailedViewController.m; sourceTree = "<group>"; };
+		C1FCE638164D287C002E0401 /* PSDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSDetailedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +314,9 @@
 				C1FCE62A164C21B1002E0401 /* PSCell.h */,
 				C1FCE62B164C21B1002E0401 /* PSCell.m */,
 				C1FCE62D164C21C6002E0401 /* PSCell.xib */,
+				C1FCE636164D287B002E0401 /* PSDetailedViewController.h */,
+				C1FCE637164D287B002E0401 /* PSDetailedViewController.m */,
+				C1FCE638164D287C002E0401 /* PSDetailedViewController.xib */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -399,6 +407,7 @@
 				C1FCE5FF164C15F6002E0401 /* Default@2x.png in Resources */,
 				C1FCE62E164C21C6002E0401 /* PSCell.xib in Resources */,
 				C1FCE630164D0950002E0401 /* placeholder.jpg in Resources */,
+				C1FCE63A164D287C002E0401 /* PSDetailedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +447,7 @@
 				C1FCE625164C1772002E0401 /* UIImageView+AFNetworking.m in Sources */,
 				C1FCE629164C1E73002E0401 /* FloatingLayerGenerator.m in Sources */,
 				C1FCE62C164C21B1002E0401 /* PSCell.m in Sources */,
+				C1FCE639164D287C002E0401 /* PSDetailedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,10 +526,12 @@
 		C1FCE5C0164C1528002E0401 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Times Newspapers Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectShakeUp/ProjectShakeUp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectShakeUp/ProjectShakeUp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A98E3865-77F9-4244-9094-BEF80474B3F4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -527,10 +539,12 @@
 		C1FCE5C1164C1528002E0401 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Times Newspapers Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectShakeUp/ProjectShakeUp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectShakeUp/ProjectShakeUp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A98E3865-77F9-4244-9094-BEF80474B3F4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

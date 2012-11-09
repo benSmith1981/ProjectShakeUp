@@ -10,6 +10,7 @@
 #import "TSLayerVisuals.h"
 
 @implementation PSCell
+@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -31,4 +32,8 @@
 }
 */
 
+- (IBAction)tapped:(id)sender
+{
+    [delegate cellTappedWithCell:self];
+}
 @end
