@@ -33,17 +33,15 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         // Initialization code
         self.frame = frame;
         [TSLayerVisuals applyDropShadow:self];
-        [self floatingAnimation];
-        
     }
     return self;
 }
 
 -(void)floatingAnimation{
     
-    [UIView animateWithDuration:3.0
-                          delay:0.0
-                        options: UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse
+    [UIView animateWithDuration:1.0
+                          delay:0
+                        options: UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionAllowUserInteraction
                      animations:^{
                          
                          int randomMoveNumber = -3 + rand() % (3+3);
@@ -73,6 +71,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     [self.title setText:self.article.title];
     NSURL* url = [NSURL URLWithString:self.article.url];
     [self.image setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+    [self floatingAnimation];
 }
 
 - (IBAction)tapped:(id)sender

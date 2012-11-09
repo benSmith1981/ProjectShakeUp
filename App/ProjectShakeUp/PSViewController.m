@@ -32,7 +32,7 @@
                                                  name:FEED_UPDATE_NOTIFICATION
                                                object:nil];
 
-    CGSize size = CGSizeMake(100, 125);
+    CGSize size = CGSizeMake(125, 150);
     CGFloat border = 10;
     
     // Top Left
@@ -44,16 +44,16 @@
                                                                        CGRectGetMinY(topLeftView.frame),
                                                                        size.width, size.height)];
     // Middle
-    PSCell* middleView      = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMaxX(topLeftView.frame),
-                                                                       CGRectGetMaxY(topLeftView.frame) + border,
+    PSCell* middleView      = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMidX(topLeftView.frame) + 20,
+                                                                       CGRectGetMidY(topLeftView.frame) + 60,
                                                                        size.width, size.height)];
     // Bottom Left
     PSCell* bottomLeftView  = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topLeftView.frame),
-                                                                       CGRectGetMaxY(middleView.frame) + border,
+                                                                       CGRectGetMaxY(middleView.frame) - border,
                                                                        size.width, size.height)];
     // Bottom Right
     PSCell* bottonRightView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topRightView.frame),
-                                                                       CGRectGetMaxY(middleView.frame) + border,
+                                                                       CGRectGetMaxY(middleView.frame) - border,
                                                                        size.width, size.height)];
     
     self.psCells = [[NSArray alloc] initWithObjects:topLeftView, topRightView, middleView, bottomLeftView, bottonRightView, nil];
