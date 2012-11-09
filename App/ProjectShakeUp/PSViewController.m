@@ -75,8 +75,8 @@
     [panRecognizer setMaximumNumberOfTouches:1];
     [panRecognizer setDelegate:self];
     [bottonRightView addGestureRecognizer:panRecognizer];
-    [bottomLeftView addGestureRecognizer:panRecognizer];
-    [self.view addGestureRecognizer:panRecognizer];
+//    [bottomLeftView addGestureRecognizer:panRecognizer];
+//    [self.view addGestureRecognizer:panRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
