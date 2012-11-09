@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PSCellDelegate;
+
 @interface PSCell : UIView
 @property (nonatomic)CGFloat _lastRotation;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;
+
+@property (weak, nonatomic) id<PSCellDelegate> delegate;
+
+- (IBAction)tapped:(id)sender;
+@end
+
+@protocol PSCellDelegate
+- (void)cellTappedWithCell:(PSCell*)cell;
 @end

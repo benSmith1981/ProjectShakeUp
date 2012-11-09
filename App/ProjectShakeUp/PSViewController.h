@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSCell.h"
 
-@interface PSViewController : UIViewController<UIGestureRecognizerDelegate>
-{    
+@interface PSViewController : UIViewController<UIGestureRecognizerDelegate, PSCellDelegate>
+{
 NSArray *floatingViews;
 UIPanGestureRecognizer *panRecognizer;
 
-//BOOL objectMoving;
 UIView *activeLayer;
-//
 CGFloat _firstX;
 CGFloat _firstY;
+    
 }
 - (IBAction)shakeButtonPressed:(id)sender;
 @end

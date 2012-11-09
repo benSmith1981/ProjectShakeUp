@@ -14,7 +14,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 @implementation PSCell
-@synthesize _lastRotation;
+@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -48,16 +48,6 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
                      completion:NULL];
 }
 
--(void)rotateView:(UIView*)view
-{
-    CGFloat rotation = 0.0 - (_lastRotation);
-    CGAffineTransform currentTransform = view.transform;
-    CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform,rotation);
-    
-    [view setTransform:newTransform];
-    
-    _lastRotation = 0.0;//[view. rotation];
-}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -68,4 +58,8 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 }
 */
 
+- (IBAction)tapped:(id)sender
+{
+    [delegate cellTappedWithCell:self];
+}
 @end

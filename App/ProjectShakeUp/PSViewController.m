@@ -10,17 +10,19 @@
 #import "TSFeed.h"
 #import "TSArticle.h"
 #import "Logging.h"
-#import "PSCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "PSDetailedViewController.h"
 
 @interface PSViewController ()
 @property (strong, nonatomic) NSArray* psCells;
 @property (strong, nonatomic) TSFeed* feed;
+@property (strong, nonatomic) PSDetailedViewController* detailedView;
 @end
 
 @implementation PSViewController
 @synthesize psCells = _psCells;
 @synthesize feed = _feed;
+@synthesize detailedView = _detailedView;
 
 - (void)viewDidLoad
 {
@@ -57,7 +59,8 @@
     
     self.psCells = [[NSArray alloc] initWithObjects:topLeftView, topRightView, middleView, bottomLeftView, bottonRightView, nil];
     
-    for (UIView* cell in self.psCells) {
+    for (PSCell* cell in self.psCells) {
+        [cell setDelegate:self];
         [self.view addSubview:cell];
     }
     
@@ -105,13 +108,8 @@
     [super viewDidUnload];
 }
 
-- (IBAction)shakeButtonPressed:(id)sender {
-//    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Shaking!"
-//                                                      message:@"This will load another 5 random articles."
-//                                                     delegate:nil
-//                                            cancelButtonTitle:@"OK"
-//                                            otherButtonTitles:nil];
-//    [message show];
+- (IBAction)shakeButtonPressed:(id)sender
+{
     [self randomise];
 }
 
@@ -123,9 +121,6 @@
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Shake" message:@"Ended" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//    [alert show];
-    
     [self randomise];
 }
 
@@ -140,10 +135,9 @@
     NSUInteger totalArticles = [self.feed.articles count];
     NSMutableArray *randomNumbers = [[NSMutableArray alloc] initWithCapacity:5];
     
-    
     for(int i=0; i<5; i++) {
         NSUInteger randomIndex = arc4random() % totalArticles;
-//        NSLog(@"--->%i", randomIndex);
+//        Debug(@"--->%i", randomIndex);
         [randomNumbers addObject:[NSNumber numberWithInt:randomIndex]];
     }
     
@@ -159,7 +153,6 @@
         [cell.image setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     }
 }
-
 
 #pragma mark UIGestureRegognizerDelegate
 
@@ -181,25 +174,7 @@
     
     UIPanGestureRecognizer *gestureRecogniser = (UIPanGestureRecognizer*)sender;
     
-    //CGPoint touchPoint = [(UIGestureRecognizer*)sender locationInView:self.view];
-//    for (PSCell *floatingView in floatingViews) {
-//        if (CGRectContainsPoint(floatingView.frame, touchPoint))
-//        {
-//            activeLayer = floatingView;
-//        }
-//    }
-//    activeLayer = gestureRecogniser.view;
 
-//    CGPoint translatedPoint = [gestureRecogniser translationInView:self.view];
-//    
-//    if([gestureRecogniser state] == UIGestureRecognizerStateBegan) {
-//        firstX = [activeLayer center].x;
-//        firstY = [activeLayer center].y;
-//        
-//    }
-//    
-//    translatedPoint = CGPointMake(firstX+translatedPoint.x, firstY+translatedPoint.y);
-//    [gestureRecogniser.view setCenter:translatedPoint];
 
     CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
 
@@ -211,4 +186,16 @@
     translatedPoint = CGPointMake(_firstX+translatedPoint.x, _firstY+translatedPoint.y);
     [gestureRecogniser.view setCenter:translatedPoint];
 }
+
+#pragma mark
+#pragma PSCellDelegate
+- (void)cellTappedWithCell:(PSCell*)cell
+{
+    self.detailedView = [[PSDetailedViewController alloc] initWithFrame:cell.frame];
+
+    [self.view addSubview:self.detailedView.view];
+    
+    [self.detailedView animate];
+}
+
 @end
