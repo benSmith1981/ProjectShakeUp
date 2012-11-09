@@ -10,6 +10,10 @@
 #import "TSArticle.h"
 #import "UIImageView+AFNetworking.h"
 #import "TSLayerVisuals.h"
+#import <QuartzCore/QuartzCore.h>
+
+CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
+CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
 @interface PSCell()
 @property (weak, nonatomic) IBOutlet UIImageView *image;
@@ -29,9 +33,31 @@
         // Initialization code
         self.frame = frame;
         [TSLayerVisuals applyDropShadow:self];
+        [self floatingAnimation];
+        
     }
     return self;
 }
+
+-(void)floatingAnimation{
+    
+    [UIView animateWithDuration:3.0
+                          delay:0.0
+                        options: UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse
+                     animations:^{
+                         
+                         int randomMoveNumber = -3 + rand() % (3+3);
+
+                         self.center = CGPointMake(self.center.x + randomMoveNumber,
+                                                             self.center.y);
+                         
+                         int randomRotateNumber = -10 + rand() % (10+10);
+                         CGAffineTransform transform = CGAffineTransformMakeRotation(DegreesToRadians(randomRotateNumber));
+                         self.transform = transform;
+                     }
+                     completion:NULL];
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

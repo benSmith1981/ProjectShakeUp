@@ -12,6 +12,7 @@
 @class TSArticle;
 
 @interface PSCell : UIView
+@property (nonatomic)CGFloat _lastRotation;
 
 @property (weak, nonatomic) TSArticle *article;
 @property (weak, nonatomic) id<PSCellDelegate> delegate;

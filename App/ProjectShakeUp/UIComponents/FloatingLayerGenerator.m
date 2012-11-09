@@ -10,8 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import  "TSLayerVisuals.h"
 
-CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
-CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
+
 
 @implementation FloatingLayerGenerator
 
@@ -42,16 +41,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 }
 
 
--(void)rotateView:(UIView*)view
-{
-    CGFloat rotation = 0.0 - (_lastRotation);
-    CGAffineTransform currentTransform = view.transform;
-    CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform,rotation);
-    
-    [view setTransform:newTransform];
-    
-    _lastRotation = 0.0;//[view. rotation];
-}
+
 
 
 
