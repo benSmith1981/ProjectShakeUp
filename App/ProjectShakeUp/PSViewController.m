@@ -174,9 +174,9 @@
     if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_FEED]) {
         TSFeed* feed = (TSFeed*)[[notification userInfo] objectForKey:kNOTIFICATION_DATA];
         TSArticle* article = (TSArticle*)[feed.articles objectAtIndex:0];
-        Debug(@"%@", article.title);
-        Debug(@"%@", article.url);
-        Debug(@"%@", article.story);
+//        Debug(@"%@", article.title);
+//        Debug(@"%@", article.url);
+//        Debug(@"%@", article.story);
         
         int i=0;
         
