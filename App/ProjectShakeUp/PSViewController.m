@@ -35,21 +35,21 @@
     CGFloat border = 10;
     
     // Top Left
-    PSCell* topLeftView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame) + border,
-                                                                   CGRectGetMinY(self.view.frame) + border,
-                                                                   size.width, size.height)];
+    PSCell* topLeftView     = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame) + border,
+                                                                       CGRectGetMinY(self.view.frame) + border,
+                                                                       size.width, size.height)];
     // Top Right
-    PSCell* topRightView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) - (border + size.width),
-                                                                    CGRectGetMinY(topLeftView.frame),
-                                                                    size.width, size.height)];
+    PSCell* topRightView    = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) - (border + size.width),
+                                                                       CGRectGetMinY(topLeftView.frame),
+                                                                       size.width, size.height)];
     // Middle
-    PSCell* middleView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMaxX(topLeftView.frame),
-                                                                  CGRectGetMaxY(topLeftView.frame) + border,
-                                                                  size.width, size.height)];
+    PSCell* middleView      = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMaxX(topLeftView.frame),
+                                                                       CGRectGetMaxY(topLeftView.frame) + border,
+                                                                       size.width, size.height)];
     // Bottom Left
-    PSCell* bottomLeftView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topLeftView.frame),
-                                                                      CGRectGetMaxY(middleView.frame) + border,
-                                                                      size.width, size.height)];
+    PSCell* bottomLeftView  = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topLeftView.frame),
+                                                                       CGRectGetMaxY(middleView.frame) + border,
+                                                                       size.width, size.height)];
     // Bottom Right
     PSCell* bottonRightView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topRightView.frame),
                                                                        CGRectGetMaxY(middleView.frame) + border,
@@ -80,24 +80,12 @@
 
 #pragma mark Gesture recognizer actions
 
--(void)feedDataAvailableNotificationReceived:(NSNotification *)notification
+- (void)feedDataAvailableNotificationReceived:(NSNotification *)notification
 {    
     if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_FEED]) {
         self.feed = (TSFeed*)[[notification userInfo] objectForKey:kNOTIFICATION_DATA];
-        TSArticle* article = (TSArticle*)[self.feed.articles objectAtIndex:0];
-//        Debug(@"%@", article.title);
-//        Debug(@"%@", article.url);
-//        Debug(@"%@", article.story);
-        
-        int i=0;
-        
-        for( PSCell* cell in self.psCells) {
-            article = [self.feed.articles objectAtIndex:i];
-            i++;
-            [cell.title setText:article.title];
-            NSURL* url = [NSURL URLWithString:article.url];
-            [cell.image setImageWithURL:url];
-        }
+       
+        [self randomise];
     }
 }
 
@@ -106,12 +94,13 @@
 }
 
 - (IBAction)shakeButtonPressed:(id)sender {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Shaking!"
-                                                      message:@"This will load another 5 random articles."
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    [message show];
+//    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Shaking!"
+//                                                      message:@"This will load another 5 random articles."
+//                                                     delegate:nil
+//                                            cancelButtonTitle:@"OK"
+//                                            otherButtonTitles:nil];
+//    [message show];
+    [self randomise];
 }
 
 #pragma mark
@@ -122,12 +111,41 @@
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Shake" message:@"Ended" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Shake" message:@"Ended" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alert show];
+    
+    [self randomise];
 }
 
 - (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
+}
+
+#pragma mark
+#pragma Random Selection
+- (void)randomise
+{
+    NSUInteger totalArticles = [self.feed.articles count];
+    NSMutableArray *randomNumbers = [[NSMutableArray alloc] initWithCapacity:5];
+    
+    
+    for(int i=0; i<5; i++) {
+        NSUInteger randomIndex = arc4random() % totalArticles;
+//        NSLog(@"--->%i", randomIndex);
+        [randomNumbers addObject:[NSNumber numberWithInt:randomIndex]];
+    }
+    
+    TSArticle* article = nil;
+    int i=0;
+    
+    for( PSCell* cell in self.psCells) {
+        NSUInteger index = [[randomNumbers objectAtIndex:i] integerValue];
+        article = [self.feed.articles objectAtIndex:index];
+        i++;
+        [cell.title setText:article.title];
+        NSURL* url = [NSURL URLWithString:article.url];
+        [cell.image setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+    }
 }
 
 @end

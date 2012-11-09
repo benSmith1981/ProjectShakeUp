@@ -17,8 +17,6 @@
     if (self) {
         // Initialization code
         self.frame = frame;
-//        [TSLayerVisuals applyRoundedCorners:self.image.layer corners:UIRectCornerAllCorners];
-//        [TSLayerVisuals applyRoundedCorners:self.layer corners:UIRectCornerAllCorners];
         [TSLayerVisuals applyDropShadow:self];
     }
     return self;
