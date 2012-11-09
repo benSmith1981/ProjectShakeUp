@@ -45,20 +45,19 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         [panRecognizer setMinimumNumberOfTouches:1];
         [panRecognizer setMaximumNumberOfTouches:1];
         [panRecognizer setDelegate:self];
-        [self addGestureRecognizer:panRecognizer];
+        [self addGestureRecognizer:panRecognizer];        
     }
     return self;
 }
 
 -(void)floatingAnimation
 {    
-    [UIView animateWithDuration:1.0
+    [UIView animateWithDuration:5.0
                           delay:0
                         options: UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionAllowUserInteraction
                      animations:^{                         
-                         int randomRotateNumber = -10 + rand() % (10+10);
-                         CGAffineTransform transform = CGAffineTransformMakeRotation(DegreesToRadians(randomRotateNumber));
-                         self.transform = transform;
+                         int randomRotateNumber = 1 + rand() % 5;
+                         self.transform = CGAffineTransformMakeRotation(DegreesToRadians(randomRotateNumber));
                      }
                      completion:nil];
 }
