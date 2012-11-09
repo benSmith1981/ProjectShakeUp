@@ -11,7 +11,8 @@
 @protocol PSCellDelegate;
 @class TSArticle;
 
-@interface PSCell : UIView
+@interface PSCell : UIView <UIGestureRecognizerDelegate>
+
 @property (nonatomic)CGFloat _lastRotation;
 
 @property (weak, nonatomic) TSArticle *article;

@@ -62,21 +62,9 @@
         [cell setDelegate:self];
         [self.view addSubview:cell];
     }
-    
-    //CURRENTLY I CAN'T GET THIS TO WORK SO I COMMENTED IT OUT, MAYBE YOU CAN HELP MARTIN? I AM NOT SURE HOW TO MOVE VIEWS WITH PANGESTURE RECOGNISER, I JUST THOUGHT IT WOUDL BE NICE TO HAVE THIS IN...
-    //Setup array of floating views and active layer
-    activeLayer = [[UIView alloc]init];
-    floatingViews = [[NSArray alloc]initWithObjects:topLeftView,topRightView,middleView,bottomLeftView,bottonRightView, nil];
 
-    //setup pan gesture to pick up
-    panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
-    [panRecognizer setMinimumNumberOfTouches:1];
-    [panRecognizer setMaximumNumberOfTouches:1];
-    [panRecognizer setDelegate:self];
-    [bottonRightView addGestureRecognizer:panRecognizer];
-//    [bottomLeftView addGestureRecognizer:panRecognizer];
-//    [self.view addGestureRecognizer:panRecognizer];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -155,48 +143,6 @@
     }
 }
 
-#pragma mark UIGestureRegognizerDelegate
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return ![gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ![gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]];
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-    
-    if ([touch.view isKindOfClass:[UIButton class]]) {      //change it to your condition
-        return NO;
-    }
-    return YES;
-}
-
-#pragma mark Gesture recognizer actions
-
--(void)move:(id)sender{
-    
-    UIPanGestureRecognizer *gestureRecogniser = (UIPanGestureRecognizer*)sender;
-    
-    CGPoint touchPoint = [gestureRecogniser locationInView:self.view];
-    
-    for (PSCell *floatingView in floatingViews) {
-        if (CGRectContainsPoint(floatingView.frame, touchPoint))
-        {
-            activeLayer = floatingView;
-            
-        }
-    }
-    [self.view bringSubviewToFront:activeLayer];
-    
-
-    CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
-
-    if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan) {
-        _firstX = [gestureRecogniser.view center].x;
-        _firstY = [gestureRecogniser.view center].y;
-    }
-    
-    translatedPoint = CGPointMake(_firstX+translatedPoint.x, _firstY+translatedPoint.y);
-    [activeLayer setCenter:translatedPoint];
-}
 
 #pragma mark
 #pragma PSCellDelegate
