@@ -13,20 +13,11 @@
 
 + (void)applyRoundedCorners:(CALayer*)layer corners:(NSUInteger)corners
 {
-    [layer setShadowColor: [[UIColor blackColor] CGColor]];
-    [layer setShadowOpacity:0.85f];
-    [layer setShadowOffset: CGSizeMake(0.0f, 1.5f)];
-    [layer setShadowRadius:2.0f];
-    [layer setShouldRasterize:YES];
-    
-    CGRect bounds = layer.bounds;
-    bounds.size.height += 10.0f;
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:bounds
-                                                   byRoundingCorners:corners
-                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:layer.bounds
+                                                        cornerRadius:10.0];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = bounds;
+    maskLayer.frame = layer.bounds;
     maskLayer.path = maskPath.CGPath;
     
     [layer addSublayer:maskLayer];

@@ -46,6 +46,8 @@
 		C1FCE624164C1772002E0401 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE61A164C1772002E0401 /* AFXMLRequestOperation.m */; };
 		C1FCE625164C1772002E0401 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE61C164C1772002E0401 /* UIImageView+AFNetworking.m */; };
 		C1FCE629164C1E73002E0401 /* FloatingLayerGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE628164C1E73002E0401 /* FloatingLayerGenerator.m */; };
+		C1FCE62C164C21B1002E0401 /* PSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE62B164C21B1002E0401 /* PSCell.m */; };
+		C1FCE62E164C21C6002E0401 /* PSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE62D164C21C6002E0401 /* PSCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +122,9 @@
 		C1FCE626164C1799002E0401 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		C1FCE627164C1E73002E0401 /* FloatingLayerGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingLayerGenerator.h; sourceTree = "<group>"; };
 		C1FCE628164C1E73002E0401 /* FloatingLayerGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingLayerGenerator.m; sourceTree = "<group>"; };
+		C1FCE62A164C21B1002E0401 /* PSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCell.h; sourceTree = "<group>"; };
+		C1FCE62B164C21B1002E0401 /* PSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCell.m; sourceTree = "<group>"; };
+		C1FCE62D164C21C6002E0401 /* PSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +303,9 @@
 				C1FCE5ED164C15F6002E0401 /* TSLayerVisuals.m */,
 				C1FCE5EE164C15F6002E0401 /* TSPageControlComponent.h */,
 				C1FCE5EF164C15F6002E0401 /* TSPageControlComponent.m */,
+				C1FCE62A164C21B1002E0401 /* PSCell.h */,
+				C1FCE62B164C21B1002E0401 /* PSCell.m */,
+				C1FCE62D164C21C6002E0401 /* PSCell.xib */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -386,6 +394,7 @@
 				C1FCE5FD164C15F6002E0401 /* Default-568h@2x.png in Resources */,
 				C1FCE5FE164C15F6002E0401 /* Default.png in Resources */,
 				C1FCE5FF164C15F6002E0401 /* Default@2x.png in Resources */,
+				C1FCE62E164C21C6002E0401 /* PSCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +433,7 @@
 				C1FCE624164C1772002E0401 /* AFXMLRequestOperation.m in Sources */,
 				C1FCE625164C1772002E0401 /* UIImageView+AFNetworking.m in Sources */,
 				C1FCE629164C1E73002E0401 /* FloatingLayerGenerator.m in Sources */,
+				C1FCE62C164C21B1002E0401 /* PSCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
