@@ -40,8 +40,8 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="748928490">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">310</int>
-						<string key="NSFrameSize">{320, 573}</string>
+						<int key="NSvFlags">274</int>
+						<string key="NSFrameSize">{320, 481}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="959284670"/>
@@ -55,7 +55,7 @@
 					</object>
 					<object class="IBUIView" id="959284670">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">310</int>
+						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIButton" id="421744646">
 								<reference key="NSNextResponder" ref="959284670"/>
@@ -71,7 +71,7 @@
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Close</string>
-								<object class="NSColor" key="IBUIHighlightedTitleColor" id="1073175004">
+								<object class="NSColor" key="IBUIHighlightedTitleColor" id="319185337">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
@@ -146,18 +146,19 @@
 							</object>
 							<object class="IBUIWebView" id="663262648">
 								<reference key="NSNextResponder" ref="959284670"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">274</int>
 								<string key="NSFrame">{{10, 239}, {270, 179}}</string>
 								<reference key="NSSuperview" ref="959284670"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<reference key="IBUIBackgroundColor" ref="1073175004"/>
+								<reference key="IBUIBackgroundColor" ref="319185337"/>
+								<string key="IBUIContentStretch">{{0, 0}, {0, 0}}</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIDataDetectorTypes">1</int>
 								<bool key="IBUIDetectsPhoneNumbers">YES</bool>
 							</object>
 						</array>
-						<string key="NSFrame">{{15, 15}, {290, 518}}</string>
+						<string key="NSFrame">{{15, 15}, {290, 432}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="107280842"/>
@@ -169,7 +170,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrame">{{0, 20}, {320, 548}}</string>
+				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="748928490"/>
@@ -183,13 +184,13 @@
 							<integer value="3"/>
 						</array>
 						<array key="dict.values">
-							<string>{320, 568}</string>
-							<string>{568, 320}</string>
+							<string>{320, 480}</string>
+							<string>{480, 320}</string>
 						</array>
 					</object>
 					<string key="IBUITargetRuntime">IBCocoaTouchFramework</string>
-					<string key="IBUIDisplayName">Retina 4 Full Screen</string>
-					<int key="IBUIType">2</int>
+					<string key="IBUIDisplayName">Retina 3.5 Full Screen</string>
+					<int key="IBUIType">0</int>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>

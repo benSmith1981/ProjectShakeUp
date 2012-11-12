@@ -35,13 +35,13 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUIView" id="714028239">
+					<object class="IBUIView" id="472984618">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 548}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="441623378"/>
+						<reference key="NSNextKeyView" ref="272507489"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -49,17 +49,16 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
-					<object class="IBUIView" id="441623378">
+					<object class="IBUIView" id="272507489">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">310</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIButton" id="1049992634">
-								<reference key="NSNextResponder" ref="441623378"/>
+								<reference key="NSNextResponder" ref="272507489"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{10, 205}, {73, 44}}</string>
-								<reference key="NSSuperview" ref="441623378"/>
+								<reference key="NSSuperview" ref="272507489"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -67,7 +66,7 @@
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<int key="IBUIButtonType">1</int>
 								<string key="IBUINormalTitle">Shake</string>
-								<object class="NSColor" key="IBUIHighlightedTitleColor" id="408445573">
+								<object class="NSColor" key="IBUIHighlightedTitleColor" id="995437694">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
@@ -90,7 +89,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 528}</string>
+						<string key="NSFrameSize">{320, 443}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1049992634"/>
@@ -106,11 +105,11 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</array>
-				<string key="NSFrame">{{0, 20}, {320, 548}}</string>
+				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="714028239"/>
-				<reference key="IBUIBackgroundColor" ref="408445573"/>
+				<reference key="NSNextKeyView" ref="472984618"/>
+				<reference key="IBUIBackgroundColor" ref="995437694"/>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
@@ -122,13 +121,13 @@
 							<integer value="3"/>
 						</array>
 						<array key="dict.values">
-							<string>{320, 568}</string>
-							<string>{568, 320}</string>
+							<string>{320, 480}</string>
+							<string>{480, 320}</string>
 						</array>
 					</object>
 					<string key="IBUITargetRuntime">IBCocoaTouchFramework</string>
-					<string key="IBUIDisplayName">Retina 4 Full Screen</string>
-					<int key="IBUIType">2</int>
+					<string key="IBUIDisplayName">Retina 3.5 Full Screen</string>
+					<int key="IBUIType">0</int>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -147,7 +146,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">toolMenuView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="714028239"/>
+						<reference key="destination" ref="472984618"/>
 					</object>
 					<int key="connectionID">18</int>
 				</object>
@@ -155,7 +154,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">contentMenuView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="441623378"/>
+						<reference key="destination" ref="272507489"/>
 					</object>
 					<int key="connectionID">19</int>
 				</object>
@@ -192,22 +191,22 @@
 						<int key="objectID">6</int>
 						<reference key="object" ref="774585933"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="714028239"/>
-							<reference ref="441623378"/>
+							<reference ref="472984618"/>
+							<reference ref="272507489"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">ParentView</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">15</int>
-						<reference key="object" ref="714028239"/>
+						<reference key="object" ref="472984618"/>
 						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="774585933"/>
 						<string key="objectName">ToolsMenu</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">16</int>
-						<reference key="object" ref="441623378"/>
+						<reference key="object" ref="272507489"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="1049992634"/>
 						</array>
@@ -217,7 +216,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
 						<reference key="object" ref="1049992634"/>
-						<reference key="parent" ref="441623378"/>
+						<reference key="parent" ref="272507489"/>
 					</object>
 				</array>
 			</object>
@@ -242,20 +241,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PSViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="menuSwipeHandler:">UIPanGestureRecognizer</string>
-						<string key="shakeButtonPressed:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="menuSwipeHandler:">
-							<string key="name">menuSwipeHandler:</string>
-							<string key="candidateClassName">UIPanGestureRecognizer</string>
-						</object>
-						<object class="IBActionInfo" key="shakeButtonPressed:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">shakeButtonPressed:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">shakeButtonPressed:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">shakeButtonPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="contentMenuView">UIView</string>
 						<string key="toolMenuView">UIView</string>

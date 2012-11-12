@@ -10,7 +10,7 @@
 
 @class TSArticle;
 
-@interface PSDetailedViewController : UIViewController
+@interface PSDetailedViewController : UIViewController<UIWebViewDelegate>
 
 @property (weak, nonatomic) TSArticle *article;
 

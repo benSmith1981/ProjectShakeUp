@@ -30,6 +30,7 @@
         
         self.image.contentMode = UIViewContentModeScaleAspectFit;
         self.story.scrollView.bounces = NO;
+        self.story.delegate = self;
         
         self.titleLabel.hidden = YES;
         self.image.hidden = YES;
@@ -96,4 +97,16 @@
     [self setStory:nil];
     [super viewDidUnload];
 }
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+//    CGRect frame = self.image.frame;
+//    
+//    CGFloat y = CGRectGetMaxY(self.view.frame) - CGRectGetMaxY(self.image.frame);
+//    
+//    frame.origin.y = y + 30;
+//    
+//    self.story.frame = frame;
+}
+
 @end

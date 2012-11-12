@@ -12,7 +12,7 @@
 #import "Logging.h"
 #import "PSDetailedViewController.h"
 
-static CGFloat const overHang = 40;
+static CGFloat const overHang = 60;
 
 @interface PSViewController ()
 {
