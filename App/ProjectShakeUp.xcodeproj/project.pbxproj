@@ -524,12 +524,12 @@
 		C1FCE5C0164C1528002E0401 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Martin Lloyd (6DD3HK4YV7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Times Newspapers Ltd";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectShakeUp/ProjectShakeUp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectShakeUp/ProjectShakeUp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A752213F-AECD-401E-AB9B-CDE6D58C029E";
+				PROVISIONING_PROFILE = "A98E3865-77F9-4244-9094-BEF80474B3F4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
