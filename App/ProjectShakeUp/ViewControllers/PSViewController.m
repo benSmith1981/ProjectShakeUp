@@ -99,8 +99,8 @@ static CGFloat const overHang = 40;
     return YES;
 }
 
-#pragma mark Gesture recognizer actions
-
+#pragma mark
+#pragma Gesture Recogniser Actions
 - (void)feedDataAvailableNotificationReceived:(NSNotification *)notification
 {    
     if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_FEED]) {
@@ -110,7 +110,8 @@ static CGFloat const overHang = 40;
     }
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     [self setToolMenuView:nil];
     [self setContentMenuView:nil];
     [self setPanGesture:nil];
@@ -131,17 +132,11 @@ static CGFloat const overHang = 40;
     else if (sender.state == UIGestureRecognizerStateChanged) {
         
         CGPoint translation = [sender translationInView:self.view];
-        
         CGFloat y = sender.view.center.y + translation.y;
-//        NSLog(@"MOVED AMOUNT -->> %f", translation.y);
         
         up = (translation.y < 0) ? YES : NO;
-
-//        NSLog(@"SUM -->> %f", sum);
-        CGFloat diff = CGRectGetMaxY(sender.view.frame);
-//        NSLog(@"DIFF -->> %f", diff);
         
-        if(diff < overHang && up)
+        if(CGRectGetMaxY(sender.view.frame) < overHang && up)
             return;
         else if(0 <= self.contentMenuView.frame.origin.y+translation.y && !up)
             return;
@@ -182,10 +177,24 @@ static CGFloat const overHang = 40;
     NSUInteger totalArticles = [self.feed.articles count];
     NSMutableArray *randomNumbers = [[NSMutableArray alloc] initWithCapacity:5];
     
-    for(int i=0; i<5; i++) {
+    while ( [randomNumbers count] < 5)
+    {
         NSUInteger randomIndex = arc4random() % totalArticles;
 //        Debug(@"--->%i", randomIndex);
-        [randomNumbers addObject:[NSNumber numberWithInt:randomIndex]];
+        
+        BOOL matchFound = NO;
+        
+        for (int i=0; i<[randomNumbers count]; i++) {
+            if([[randomNumbers objectAtIndex:i] intValue] == randomIndex) {
+//                Debug(@"MATCH");
+                matchFound = YES;
+                break;
+            }
+        }
+        
+        if(matchFound == NO) {
+            [randomNumbers addObject:[NSNumber numberWithInt:randomIndex]];
+        }
     }
     
     TSArticle* article = nil;
