@@ -29,6 +29,7 @@
         self.view.frame = frame;
         
         self.image.contentMode = UIViewContentModeScaleAspectFit;
+        self.story.scrollView.bounces = NO;
         
         self.titleLabel.hidden = YES;
         self.image.hidden = YES;
