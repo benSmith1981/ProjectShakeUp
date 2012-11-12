@@ -12,7 +12,13 @@
 #import "Logging.h"
 #import "PSDetailedViewController.h"
 
+static CGFloat const overHang = 40;
+
 @interface PSViewController ()
+{
+    BOOL up;
+}
+
 @property (weak, nonatomic) IBOutlet UIView *toolMenuView;
 @property (weak, nonatomic) IBOutlet UIView *contentMenuView;
 
@@ -21,6 +27,7 @@
 @property (strong, nonatomic) NSArray* psCells;
 @property (strong, nonatomic) TSFeed* feed;
 @property (strong, nonatomic) PSDetailedViewController* detailedView;
+
 @end
 
 @implementation PSViewController
@@ -119,34 +126,37 @@
     
     if (sender.state == UIGestureRecognizerStateBegan) {
         // Only allow drag from bottom part of view??
+        // If icon placed at the bottom.
     }
-    else if (sender.state == UIGestureRecognizerStateChanged){
+    else if (sender.state == UIGestureRecognizerStateChanged) {
+        
         CGPoint translation = [sender translationInView:self.view];
         
         CGFloat y = sender.view.center.y + translation.y;
-
-        CGFloat totalY = self.contentMenuView.frame.size.height;
-        CGFloat sum = (totalY / 6);
-        
 //        NSLog(@"MOVED AMOUNT -->> %f", translation.y);
-        BOOL up = (translation.y<0) ? YES : NO;
+        
+        up = (translation.y < 0) ? YES : NO;
 
 //        NSLog(@"SUM -->> %f", sum);
         CGFloat diff = CGRectGetMaxY(sender.view.frame);
 //        NSLog(@"DIFF -->> %f", diff);
         
-        if(diff < sum && up)
+        if(diff < overHang && up)
             return;
         else if(0 <= self.contentMenuView.frame.origin.y+translation.y && !up)
             return;
-        
-//        NSLog(@"Y -->> %f", y);
-//        NSLog(@"-->> %f", CGRectGetMinY(sender.view.frame));
-//        NSLog(@"-->> %f", CGRectGetMaxY(sender.view.frame));
 
         sender.view.center = CGPointMake(sender.view.center.x, y);
         
         [sender setTranslation:CGPointMake(0, 0) inView:self.view];
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded) {
+        [UIView animateWithDuration:0.5
+                         animations:^(void){
+                             CGRect frame = self.contentMenuView.frame;
+                             frame.origin.y = (up) ? (overHang - self.contentMenuView.frame.size.height) : 0;
+                             self.contentMenuView.frame = frame;
+                         }];
     }
 }
 
