@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1742A7C1651386B00407C0A /* PSDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1742A771651386B00407C0A /* PSDetailedViewController.m */; };
+		C1742A7D1651386B00407C0A /* PSDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1742A781651386B00407C0A /* PSDetailedViewController.xib */; };
+		C1742A7E1651386B00407C0A /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1742A7A1651386B00407C0A /* PSViewController.m */; };
+		C1742A7F1651386B00407C0A /* PSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1742A7B1651386B00407C0A /* PSViewController.xib */; };
+		C1742A8116513AB500407C0A /* Article.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C1742A8016513AB500407C0A /* Article.bundle */; };
 		C1FCE5A0164C1528002E0401 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FCE59F164C1528002E0401 /* UIKit.framework */; };
 		C1FCE5A2164C1528002E0401 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FCE5A1164C1528002E0401 /* Foundation.framework */; };
 		C1FCE5A4164C1528002E0401 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FCE5A3164C1528002E0401 /* CoreGraphics.framework */; };
 		C1FCE5AA164C1528002E0401 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE5A8164C1528002E0401 /* InfoPlist.strings */; };
 		C1FCE5AC164C1528002E0401 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE5AB164C1528002E0401 /* main.m */; };
 		C1FCE5B0164C1528002E0401 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE5AF164C1528002E0401 /* PSAppDelegate.m */; };
-		C1FCE5B9164C1528002E0401 /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE5B8164C1528002E0401 /* PSViewController.m */; };
-		C1FCE5BC164C1528002E0401 /* PSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE5BA164C1528002E0401 /* PSViewController.xib */; };
 		C1FCE5F0164C15F6002E0401 /* NSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE5C8164C15F6002E0401 /* NSDate+Format.m */; };
 		C1FCE5F1164C15F6002E0401 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE5CA164C15F6002E0401 /* NSString+Format.m */; };
 		C1FCE5F2164C15F6002E0401 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE5CE164C15F6002E0401 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -48,11 +51,16 @@
 		C1FCE62C164C21B1002E0401 /* PSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE62B164C21B1002E0401 /* PSCell.m */; };
 		C1FCE62E164C21C6002E0401 /* PSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE62D164C21C6002E0401 /* PSCell.xib */; };
 		C1FCE630164D0950002E0401 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE62F164D0950002E0401 /* placeholder.jpg */; };
-		C1FCE639164D287C002E0401 /* PSDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1FCE637164D287B002E0401 /* PSDetailedViewController.m */; };
-		C1FCE63A164D287C002E0401 /* PSDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FCE638164D287C002E0401 /* PSDetailedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1742A761651386B00407C0A /* PSDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDetailedViewController.h; sourceTree = "<group>"; };
+		C1742A771651386B00407C0A /* PSDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDetailedViewController.m; sourceTree = "<group>"; };
+		C1742A781651386B00407C0A /* PSDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSDetailedViewController.xib; sourceTree = "<group>"; };
+		C1742A791651386B00407C0A /* PSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSViewController.h; sourceTree = "<group>"; };
+		C1742A7A1651386B00407C0A /* PSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSViewController.m; sourceTree = "<group>"; };
+		C1742A7B1651386B00407C0A /* PSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSViewController.xib; sourceTree = "<group>"; };
+		C1742A8016513AB500407C0A /* Article.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Article.bundle; sourceTree = "<group>"; };
 		C1FCE59B164C1528002E0401 /* ProjectShakeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectShakeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1FCE59F164C1528002E0401 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C1FCE5A1164C1528002E0401 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,9 +71,6 @@
 		C1FCE5AD164C1528002E0401 /* ProjectShakeUp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectShakeUp-Prefix.pch"; sourceTree = "<group>"; };
 		C1FCE5AE164C1528002E0401 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
 		C1FCE5AF164C1528002E0401 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
-		C1FCE5B7164C1528002E0401 /* PSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSViewController.h; sourceTree = "<group>"; };
-		C1FCE5B8164C1528002E0401 /* PSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSViewController.m; sourceTree = "<group>"; };
-		C1FCE5BB164C1528002E0401 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PSViewController.xib; sourceTree = "<group>"; };
 		C1FCE5C7164C15F6002E0401 /* NSDate+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Format.h"; sourceTree = "<group>"; };
 		C1FCE5C8164C15F6002E0401 /* NSDate+Format.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Format.m"; sourceTree = "<group>"; };
 		C1FCE5C9164C15F6002E0401 /* NSString+Format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
@@ -126,9 +131,6 @@
 		C1FCE62B164C21B1002E0401 /* PSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCell.m; sourceTree = "<group>"; };
 		C1FCE62D164C21C6002E0401 /* PSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSCell.xib; sourceTree = "<group>"; };
 		C1FCE62F164D0950002E0401 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
-		C1FCE636164D287B002E0401 /* PSDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDetailedViewController.h; sourceTree = "<group>"; };
-		C1FCE637164D287B002E0401 /* PSDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDetailedViewController.m; sourceTree = "<group>"; };
-		C1FCE638164D287C002E0401 /* PSDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSDetailedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1742A751651386B00407C0A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C1742A761651386B00407C0A /* PSDetailedViewController.h */,
+				C1742A771651386B00407C0A /* PSDetailedViewController.m */,
+				C1742A781651386B00407C0A /* PSDetailedViewController.xib */,
+				C1742A791651386B00407C0A /* PSViewController.h */,
+				C1742A7A1651386B00407C0A /* PSViewController.m */,
+				C1742A7B1651386B00407C0A /* PSViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		C1FCE590164C1528002E0401 = {
 			isa = PBXGroup;
 			children = (
@@ -185,14 +200,12 @@
 				C1FCE5CB164C15F6002E0401 /* DataLayer */,
 				C1FCE5D7164C15F6002E0401 /* HelperClasses */,
 				C1FCE5DA164C15F6002E0401 /* ManagedObjectModel */,
-				C1FCE5E7164C15F6002E0401 /* Resources */,
-				C1FCE5EB164C15F6002E0401 /* UIComponents */,
 				C1FCE5AE164C1528002E0401 /* PSAppDelegate.h */,
 				C1FCE5AF164C1528002E0401 /* PSAppDelegate.m */,
-				C1FCE5B7164C1528002E0401 /* PSViewController.h */,
-				C1FCE5B8164C1528002E0401 /* PSViewController.m */,
-				C1FCE5BA164C1528002E0401 /* PSViewController.xib */,
+				C1FCE5E7164C15F6002E0401 /* Resources */,
 				C1FCE5A6164C1528002E0401 /* Supporting Files */,
+				C1FCE5EB164C15F6002E0401 /* UIComponents */,
+				C1742A751651386B00407C0A /* ViewControllers */,
 			);
 			path = ProjectShakeUp;
 			sourceTree = "<group>";
@@ -302,6 +315,7 @@
 		C1FCE5EB164C15F6002E0401 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				C1742A8016513AB500407C0A /* Article.bundle */,
 				C1FCE5EC164C15F6002E0401 /* TSLayerVisuals.h */,
 				C1FCE5ED164C15F6002E0401 /* TSLayerVisuals.m */,
 				C1FCE5EE164C15F6002E0401 /* TSPageControlComponent.h */,
@@ -309,9 +323,6 @@
 				C1FCE62A164C21B1002E0401 /* PSCell.h */,
 				C1FCE62B164C21B1002E0401 /* PSCell.m */,
 				C1FCE62D164C21C6002E0401 /* PSCell.xib */,
-				C1FCE636164D287B002E0401 /* PSDetailedViewController.h */,
-				C1FCE637164D287B002E0401 /* PSDetailedViewController.m */,
-				C1FCE638164D287C002E0401 /* PSDetailedViewController.xib */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -396,13 +407,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1FCE5AA164C1528002E0401 /* InfoPlist.strings in Resources */,
-				C1FCE5BC164C1528002E0401 /* PSViewController.xib in Resources */,
 				C1FCE5FD164C15F6002E0401 /* Default-568h@2x.png in Resources */,
 				C1FCE5FE164C15F6002E0401 /* Default.png in Resources */,
 				C1FCE5FF164C15F6002E0401 /* Default@2x.png in Resources */,
 				C1FCE62E164C21C6002E0401 /* PSCell.xib in Resources */,
 				C1FCE630164D0950002E0401 /* placeholder.jpg in Resources */,
-				C1FCE63A164D287C002E0401 /* PSDetailedViewController.xib in Resources */,
+				C1742A7D1651386B00407C0A /* PSDetailedViewController.xib in Resources */,
+				C1742A7F1651386B00407C0A /* PSViewController.xib in Resources */,
+				C1742A8116513AB500407C0A /* Article.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +427,6 @@
 			files = (
 				C1FCE5AC164C1528002E0401 /* main.m in Sources */,
 				C1FCE5B0164C1528002E0401 /* PSAppDelegate.m in Sources */,
-				C1FCE5B9164C1528002E0401 /* PSViewController.m in Sources */,
 				C1FCE5F0164C15F6002E0401 /* NSDate+Format.m in Sources */,
 				C1FCE5F1164C15F6002E0401 /* NSString+Format.m in Sources */,
 				C1FCE5F2164C15F6002E0401 /* Reachability.m in Sources */,
@@ -441,7 +452,8 @@
 				C1FCE624164C1772002E0401 /* AFXMLRequestOperation.m in Sources */,
 				C1FCE625164C1772002E0401 /* UIImageView+AFNetworking.m in Sources */,
 				C1FCE62C164C21B1002E0401 /* PSCell.m in Sources */,
-				C1FCE639164D287C002E0401 /* PSDetailedViewController.m in Sources */,
+				C1742A7C1651386B00407C0A /* PSDetailedViewController.m in Sources */,
+				C1742A7E1651386B00407C0A /* PSViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,14 +466,6 @@
 				C1FCE5A9164C1528002E0401 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C1FCE5BA164C1528002E0401 /* PSViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C1FCE5BB164C1528002E0401 /* en */,
-			);
-			name = PSViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -520,12 +524,12 @@
 		C1FCE5C0164C1528002E0401 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Times Newspapers Ltd";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Martin Lloyd (6DD3HK4YV7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectShakeUp/ProjectShakeUp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectShakeUp/ProjectShakeUp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A98E3865-77F9-4244-9094-BEF80474B3F4";
+				PROVISIONING_PROFILE = "A752213F-AECD-401E-AB9B-CDE6D58C029E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

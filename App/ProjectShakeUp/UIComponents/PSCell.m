@@ -40,6 +40,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         
         self.image.layer.borderWidth = 1.0f;
         self.image.layer.borderColor = [UIColor blackColor].CGColor;
+        self.image.contentMode = UIViewContentModeScaleAspectFit;
         
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
         [panRecognizer setMinimumNumberOfTouches:1];

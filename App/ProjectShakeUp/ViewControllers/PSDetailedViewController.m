@@ -13,7 +13,7 @@
 @interface PSDetailedViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (weak, nonatomic) IBOutlet UITextView *story;
+@property (weak, nonatomic) IBOutlet UIWebView *story;
 
 - (IBAction)closeButtonPressed:(id)sender;
 @end
@@ -27,6 +27,8 @@
     if (self) {
         // Custom initialization
         self.view.frame = frame;
+        
+        self.image.contentMode = UIViewContentModeScaleAspectFit;
         
         self.titleLabel.hidden = YES;
         self.image.hidden = YES;
@@ -54,7 +56,13 @@
     [self.image setImageWithURL:[NSURL URLWithString:self.article.url]
                placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     
-    [self.story setText:self.article.story];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Article" ofType:@"bundle"];
+    NSURL *url = [[NSBundle bundleWithPath:bundlePath] URLForResource:@"article" withExtension:@"html"];
+    NSString *html = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    html = [html stringByReplacingOccurrencesOfString:@"<<<REPLACE>>>" withString:self.article.story];    
+    
+    NSURL *baseUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
+    [self.story loadHTMLString:html baseURL:baseUrl];
     
     [UIView animateWithDuration:0.5
                      animations:^{
