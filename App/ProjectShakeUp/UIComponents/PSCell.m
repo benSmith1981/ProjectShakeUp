@@ -41,6 +41,10 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         [TSLayerVisuals applyDropShadow:self];
         [TSLayerVisuals applyRoundedCorners:self.layer corners:UIRectCornerAllCorners];
         [TSLayerVisuals applyRoundedCorners:self.background.layer corners:UIRectCornerAllCorners];
+        
+        CGRect frame = self.image.frame;
+        frame.size = [[PSCell class] makeSize:[UIImage imageNamed:@"placeholder.jpg"].size fitInSize:self.image.frame.size];
+        self.image.frame = frame;
 
         self.layer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]].CGColor;
         self.background.hidden = YES;
@@ -104,9 +108,43 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 {
     [self.title setText:self.article.title];
     
-    NSURL* url = [NSURL URLWithString:self.article.url];
-    [self.image setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+    self.image.frame = self.image.frame = CGRectMake(5, 5, 108, 81);
+    
+    [self.image setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.article.url]]
+                      placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]
+                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                   
+                                   CGRect frame = self.image.frame;
+                                   CGFloat midPointOfFrame = CGRectGetMidX(self.image.frame);
+
+                                   [self.image setImage:image];
+                                   frame.size = [[PSCell class] makeSize:self.image.image.size fitInSize:self.image.frame.size];
+
+                                   CGFloat halfImage = frame.size.width / 2;
+                                   frame.origin.x = midPointOfFrame - halfImage;
+
+                                   self.image.frame = frame;
+                               }
+                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
+                                   //handle errors here
+                               }];
+    
     [self floatingAnimation];
+}
+
++ (CGSize)makeSize:(CGSize)originalSize fitInSize:(CGSize)boxSize
+{
+    float widthScale = 0;
+    float heightScale = 0;
+    
+    widthScale = boxSize.width/originalSize.width;
+    heightScale = boxSize.height/originalSize.height;
+    
+    float scale = MIN(widthScale, heightScale);
+    
+    CGSize newSize = CGSizeMake(originalSize.width * scale, originalSize.height * scale);
+    
+    return newSize;
 }
 
 - (IBAction)tapped:(id)sender
