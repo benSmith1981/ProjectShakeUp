@@ -57,7 +57,7 @@
 							<object class="IBUIButton" id="1049992634">
 								<reference key="NSNextResponder" ref="272507489"/>
 								<int key="NSvFlags">288</int>
-								<string key="NSFrame">{{120, 0}, {67, 60}}</string>
+								<string key="NSFrame">{{120, 2}, {67, 60}}</string>
 								<reference key="NSSuperview" ref="272507489"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="30372230"/>
@@ -100,6 +100,7 @@
 								<string key="NSFrame">{{130, 405}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="272507489"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -271,20 +272,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PSViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="menuSwipeHandler:">UIPanGestureRecognizer</string>
-						<string key="shakeButtonPressed:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="menuSwipeHandler:">
-							<string key="name">menuSwipeHandler:</string>
-							<string key="candidateClassName">UIPanGestureRecognizer</string>
-						</object>
-						<object class="IBActionInfo" key="shakeButtonPressed:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">shakeButtonPressed:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">shakeButtonPressed:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">shakeButtonPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</dictionary>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="contentMenuView">UIView</string>
 						<string key="toolMenuView">UIView</string>

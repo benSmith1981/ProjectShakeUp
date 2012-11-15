@@ -27,7 +27,6 @@
 		C1AA78FE1654EFA100CA7973 /* scrollarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AA78ED1654EFA000CA7973 /* scrollarrow.png */; };
 		C1AA78FF1654EFA100CA7973 /* settingsscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AA78EE1654EFA000CA7973 /* settingsscreen.png */; };
 		C1AA79001654EFA100CA7973 /* Shake logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AA78EF1654EFA000CA7973 /* Shake logo.png */; };
-		C1AA79011654EFA100CA7973 /* signupscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AA78F01654EFA000CA7973 /* signupscreen.png */; };
 		C1AA79021654EFA100CA7973 /* Slider_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AA78F11654EFA000CA7973 /* Slider_blue.png */; };
 		C1AA79031654EFA100CA7973 /* Slider_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AA78F21654EFA000CA7973 /* Slider_grey.png */; };
 		C1AA79041654EFA100CA7973 /* Slider_handle.png in Resources */ = {isa = PBXBuildFile; fileRef = C1AA78F31654EFA000CA7973 /* Slider_handle.png */; };
@@ -100,7 +99,6 @@
 		C1AA78ED1654EFA000CA7973 /* scrollarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrollarrow.png; sourceTree = "<group>"; };
 		C1AA78EE1654EFA000CA7973 /* settingsscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsscreen.png; sourceTree = "<group>"; };
 		C1AA78EF1654EFA000CA7973 /* Shake logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shake logo.png"; sourceTree = "<group>"; };
-		C1AA78F01654EFA000CA7973 /* signupscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signupscreen.png; sourceTree = "<group>"; };
 		C1AA78F11654EFA000CA7973 /* Slider_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slider_blue.png; sourceTree = "<group>"; };
 		C1AA78F21654EFA000CA7973 /* Slider_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slider_grey.png; sourceTree = "<group>"; };
 		C1AA78F31654EFA000CA7973 /* Slider_handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slider_handle.png; sourceTree = "<group>"; };
@@ -108,7 +106,7 @@
 		C1AA78F51654EFA000CA7973 /* turnarrowleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = turnarrowleft.png; sourceTree = "<group>"; };
 		C1AA78F61654EFA000CA7973 /* turnarrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = turnarrowright.png; sourceTree = "<group>"; };
 		C1AA78F71654EFA100CA7973 /* white-paper-texture-600x400.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "white-paper-texture-600x400.jpeg"; sourceTree = "<group>"; };
-		C1FCE59B164C1528002E0401 /* ProjectShakeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectShakeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1FCE59B164C1528002E0401 /* Shake 5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shake 5.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1FCE59F164C1528002E0401 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C1FCE5A1164C1528002E0401 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C1FCE5A3164C1528002E0401 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,7 +220,7 @@
 		C1FCE59C164C1528002E0401 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C1FCE59B164C1528002E0401 /* ProjectShakeUp.app */,
+				C1FCE59B164C1528002E0401 /* Shake 5.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,7 +365,6 @@
 				C1AA78ED1654EFA000CA7973 /* scrollarrow.png */,
 				C1AA78EE1654EFA000CA7973 /* settingsscreen.png */,
 				C1AA78EF1654EFA000CA7973 /* Shake logo.png */,
-				C1AA78F01654EFA000CA7973 /* signupscreen.png */,
 				C1AA78F11654EFA000CA7973 /* Slider_blue.png */,
 				C1AA78F21654EFA000CA7973 /* Slider_grey.png */,
 				C1AA78F31654EFA000CA7973 /* Slider_handle.png */,
@@ -442,7 +439,7 @@
 			);
 			name = ProjectShakeUp;
 			productName = ProjectShakeUp;
-			productReference = C1FCE59B164C1528002E0401 /* ProjectShakeUp.app */;
+			productReference = C1FCE59B164C1528002E0401 /* Shake 5.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -495,7 +492,6 @@
 				C1AA78FE1654EFA100CA7973 /* scrollarrow.png in Resources */,
 				C1AA78FF1654EFA100CA7973 /* settingsscreen.png in Resources */,
 				C1AA79001654EFA100CA7973 /* Shake logo.png in Resources */,
-				C1AA79011654EFA100CA7973 /* signupscreen.png in Resources */,
 				C1AA79021654EFA100CA7973 /* Slider_blue.png in Resources */,
 				C1AA79031654EFA100CA7973 /* Slider_grey.png in Resources */,
 				C1AA79041654EFA100CA7973 /* Slider_handle.png in Resources */,
@@ -622,7 +618,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectShakeUp/ProjectShakeUp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectShakeUp/ProjectShakeUp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Shake 5";
 				PROVISIONING_PROFILE = "A98E3865-77F9-4244-9094-BEF80474B3F4";
 				WRAPPER_EXTENSION = app;
 			};
@@ -635,7 +631,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectShakeUp/ProjectShakeUp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectShakeUp/ProjectShakeUp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Shake 5";
 				PROVISIONING_PROFILE = "A98E3865-77F9-4244-9094-BEF80474B3F4";
 				WRAPPER_EXTENSION = app;
 			};
