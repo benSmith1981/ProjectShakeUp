@@ -20,6 +20,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     CGFloat _firstX;
     CGFloat _firstY;
 }
+@property (weak, nonatomic) IBOutlet UIView *background;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 
@@ -39,8 +40,9 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 
         [TSLayerVisuals applyDropShadow:self];
         [TSLayerVisuals applyRoundedCorners:self.layer corners:UIRectCornerAllCorners];
-        
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
+        [TSLayerVisuals applyRoundedCorners:self.background.layer corners:UIRectCornerAllCorners];
+
+        self.background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
         
         self.title.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:12.0];
 

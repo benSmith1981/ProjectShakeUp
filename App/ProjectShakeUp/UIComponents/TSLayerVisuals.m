@@ -23,7 +23,8 @@
     maskLayer.shadowPath = [UIBezierPath bezierPathWithRect:layer.bounds].CGPath;
     maskLayer.shadowOffset = CGSizeMake(-5, 5);
     maskLayer.shadowRadius = 5;
-    maskLayer.shadowOpacity = 0.5;
+    maskLayer.shadowColor = [UIColor blackColor].CGColor;
+    maskLayer.shadowOpacity = 0.8;
     
     [layer addSublayer:maskLayer];
     layer.mask = maskLayer;
@@ -35,7 +36,8 @@
     view.layer.cornerRadius = 8;
     view.layer.shadowOffset = CGSizeMake(-5, 5);
     view.layer.shadowRadius = 5;
-    view.layer.shadowOpacity = 0.5;
+    view.layer.shadowOpacity = 0.8;
+    view.layer.shadowColor = [UIColor blackColor].CGColor;
     view.layer.shadowPath = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;
 }
 
