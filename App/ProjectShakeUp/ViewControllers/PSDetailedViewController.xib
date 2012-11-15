@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1536</int>
 		<string key="IBDocument.SystemVersion">11G63</string>
-		<string key="IBDocument.InterfaceBuilderVersion">3079</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3080</string>
 		<string key="IBDocument.AppKitVersion">1138.51</string>
 		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">2077</string>
+			<string key="NS.object.0">2078</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
@@ -146,7 +146,7 @@
 							</object>
 							<object class="IBUIWebView" id="663262648">
 								<reference key="NSNextResponder" ref="959284670"/>
-								<int key="NSvFlags">274</int>
+								<int key="NSvFlags">256</int>
 								<string key="NSFrame">{{10, 239}, {270, 179}}</string>
 								<reference key="NSSuperview" ref="959284670"/>
 								<reference key="NSWindow"/>
@@ -374,6 +374,6 @@
 			<string key="NS.key.0">placeholder.jpg</string>
 			<string key="NS.object.0">{300, 225}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">2077</string>
+		<string key="IBCocoaTouchPluginVersion">2078</string>
 	</data>
 </archive>

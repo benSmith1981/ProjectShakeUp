@@ -11,6 +11,7 @@
 #import "TSArticle.h"
 #import "Logging.h"
 #import "PSDetailedViewController.h"
+#import "TSServiceKeys.h"
 
 static CGFloat const overHang = 60;
 
@@ -25,50 +26,65 @@ static CGFloat const overHang = 60;
 @property (strong, nonatomic) UIPanGestureRecognizer* panGesture;
 
 @property (strong, nonatomic) NSArray* psCells;
-@property (strong, nonatomic) TSFeed* feed;
+@property (strong, nonatomic) NSArray* articles;
 @property (strong, nonatomic) PSDetailedViewController* detailedView;
 
 @end
 
 @implementation PSViewController
 @synthesize psCells = _psCells;
-@synthesize feed = _feed;
+@synthesize articles = _articles;
 @synthesize detailedView = _detailedView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.contentMenuView.backgroundColor = RGB(0, 81, 125);
+    self.toolMenuView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settingsscreen.png"]];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(feedDataAvailableNotificationReceived:)
                                                  name:FEED_UPDATE_NOTIFICATION
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(feedDataFailedNotificationReceived:)
+                                                 name:FEED_HTTP_ERROR_NOTIFICATION
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(feedDataFailedNotificationReceived:)
+                                                 name:FEED_DATA_ERROR_NOTIFICATION
+                                               object:nil];
 
-    CGSize size = CGSizeMake(125, 150);
-    CGFloat border = 10;
+    CGSize size = CGSizeMake(118, 160);
+    CGFloat borderX = 10;
+    CGFloat topBorderY = 40;
+    CGFloat bottomBorderY = 70;
     
     // Top Left
-    PSCell* topLeftView     = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame) + border,
-                                                                       CGRectGetMinY(self.view.frame) + border,
+    PSCell* topLeftView     = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame) + borderX,
+                                                                       CGRectGetMinY(self.view.frame) + topBorderY,
                                                                        size.width, size.height)];
     // Top Right
-    PSCell* topRightView    = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) - (border + size.width),
+    PSCell* topRightView    = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.view.frame) - (borderX + size.width),
                                                                        CGRectGetMinY(topLeftView.frame),
                                                                        size.width, size.height)];
     // Middle
-    PSCell* middleView      = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMidX(topLeftView.frame) + 20,
+    PSCell* middleView      = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMidX(topLeftView.frame) + 30,
                                                                        CGRectGetMidY(topLeftView.frame) + 60,
                                                                        size.width, size.height)];
     // Bottom Left
     PSCell* bottomLeftView  = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topLeftView.frame),
-                                                                       CGRectGetMaxY(middleView.frame) - border,
+                                                                       CGRectGetMaxY(middleView.frame) - bottomBorderY,
                                                                        size.width, size.height)];
     // Bottom Right
     PSCell* bottonRightView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topRightView.frame),
-                                                                       CGRectGetMaxY(middleView.frame) - border,
+                                                                       CGRectGetMaxY(middleView.frame) - bottomBorderY,
                                                                        size.width, size.height)];
     
-    self.psCells = [[NSArray alloc] initWithObjects:topLeftView, topRightView, middleView, bottomLeftView, bottonRightView, nil];
+    self.psCells = [[NSArray alloc] initWithObjects:topLeftView, topRightView, bottomLeftView, bottonRightView, middleView, nil];
     
     for (PSCell* cell in self.psCells) {
         [cell setDelegate:self];
@@ -99,17 +115,6 @@ static CGFloat const overHang = 60;
     return YES;
 }
 
-#pragma mark
-#pragma Gesture Recogniser Actions
-- (void)feedDataAvailableNotificationReceived:(NSNotification *)notification
-{    
-    if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_FEED]) {
-        self.feed = (TSFeed*)[[notification userInfo] objectForKey:kNOTIFICATION_DATA];
-       
-        [self randomise];
-    }
-}
-
 - (void)viewDidUnload
 {
     [self setToolMenuView:nil];
@@ -118,6 +123,45 @@ static CGFloat const overHang = 60;
     [super viewDidUnload];
 }
 
+#pragma mark
+#pragma ManagedObject Notification Handlers
+- (void)feedDataAvailableNotificationReceived:(NSNotification *)notification
+{
+    if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_SUN]) {
+        // Fire times request.
+        self.articles = [(TSFeed*)[[notification userInfo] objectForKey:kNOTIFICATION_DATA] articles];
+
+        [TSFeed getFeed:kTIMES_FEED_SERVICE_KEY];
+    }
+    else if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_TIMES]) {
+        // Add self.articles.
+        NSMutableArray *newArray = [(TSFeed*)[[notification userInfo] objectForKey:kNOTIFICATION_DATA] articles];
+        
+        [newArray addObjectsFromArray:self.articles];
+        self.articles = nil;
+        self.articles = newArray;
+
+        [self randomise];
+    }
+}
+
+- (void)feedDataFailedNotificationReceived:(NSNotification *)notification
+{
+    if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_SUN]) {
+        Debug(@"Error no %@ Feed", kKEYPATH_FEED_SUN);
+        [TSFeed getFeed:kTIMES_FEED_SERVICE_KEY];
+    }
+    else if ([[[notification userInfo] objectForKey:kNOTIFICATION_KEYPATH] isEqual: kKEYPATH_FEED_TIMES]) {
+        Debug(@"Error no %@ Feed", kKEYPATH_FEED_TIMES);
+        
+        if([self.articles count] > 0) {
+            [self randomise];
+        }
+    }
+}
+
+#pragma mark
+#pragma Gesture Recogniser Actions
 - (IBAction)shakeButtonPressed:(id)sender
 {
     [self randomise];
@@ -174,7 +218,7 @@ static CGFloat const overHang = 60;
 #pragma Random Selection
 - (void)randomise
 {
-    NSUInteger totalArticles = [self.feed.articles count];
+    NSUInteger totalArticles = [self.articles count];
     NSMutableArray *randomNumbers = [[NSMutableArray alloc] initWithCapacity:5];
     
     while ( [randomNumbers count] < 5)
@@ -202,7 +246,7 @@ static CGFloat const overHang = 60;
     
     for( PSCell* cell in self.psCells) {
         NSUInteger index = [[randomNumbers objectAtIndex:i] integerValue];
-        article = [self.feed.articles objectAtIndex:index];
+        article = [self.articles objectAtIndex:index];
         i++;
         
         [cell setArticle:article];

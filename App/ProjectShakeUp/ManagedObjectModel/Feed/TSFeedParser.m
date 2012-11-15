@@ -20,6 +20,7 @@
 @property (nonatomic, strong) TSFeed* feed;
 @property (nonatomic, strong) NSString* currentElement;
 @property (nonatomic, strong) NSThread* xmlParseThread;
+@property (nonatomic, strong) NSString* key;
 
 -(void) startParse: (id)param;
 
@@ -30,10 +31,14 @@
 @synthesize feed = _feed;
 @synthesize currentElement = _currentElement;
 @synthesize xmlParseThread = _xmlParseThread;
+@synthesize key = _key;
 
 -(void) parseData:(NSData*) data ServiceKey:(NSString*) serviceKey
 {
-    if ([serviceKey isEqualToString:kFEED_SERVICE_KEY]) {
+    if ([serviceKey isEqualToString:kSUN_FEED_SERVICE_KEY] ||
+        [serviceKey isEqualToString:kTIMES_FEED_SERVICE_KEY])
+    {
+        _key = serviceKey;
         _xmlParseThread = [[NSThread alloc] initWithTarget:self selector:@selector(startParse:) object:data];
         [_xmlParseThread start];
     }
@@ -89,15 +94,17 @@
     if (self.delegate) {
         
         __block id dataBlock = self.feed;
+        __block id keyBlock = _key;
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate didFinishParsing:dataBlock ForServiceKey:kFEED_SERVICE_KEY];
+            [self.delegate didFinishParsing:dataBlock ForServiceKey:keyBlock];
         });
     }
  
     _currentElement = nil;
     _feed = nil;
     _xmlParseThread = nil;
+    _key = nil;
 }
 
 @end

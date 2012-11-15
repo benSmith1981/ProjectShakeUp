@@ -3,12 +3,12 @@
 //  TheSun
 //
 //  Created by Martin Lloyd on 7/18/12.
-//  Ported from TheSunMatchCentre by Martin Lloyd on 9/25/12.
 //  Copyright (c) 2012 NewsInternational. All rights reserved.
 //
 
 #import "TSFeed.h"
 #import "TSServiceKeys.h"
+#import "PSFeedUrlFactory.h"
 
 @interface TSFeed ()
 
@@ -53,13 +53,13 @@ static TSFeed *internalManagedObj;
 
 
 #pragma STATIC/ CLASS PUBLIC METHODS
-+(TSFeed*) getFeed:(NSString*)requestURL
++(TSFeed*)getFeed:(NSString*)key
 {
-    if (!tsFeed) {
-        [TSFeed FireOffAsynRequestToURL:requestURL
-                  WithServiceRequestKey:kFEED_SERVICE_KEY
+//    if (!tsFeed) {
+        [TSFeed FireOffAsynRequestToURL:[[PSFeedUrlFactory class] getFeedUrlFromKey:key]
+                  WithServiceRequestKey:key
                         ResponseHandler:[TSFeed internalManagedObject]];
-    }
+//    }
     
     return tsFeed;
 }
@@ -95,10 +95,15 @@ static TSFeed *internalManagedObj;
 {
     NSString *keyPath = nil;
     
-    if ([serviceKey isEqualToString:kFEED_SERVICE_KEY]) {
-        // for this service key, we know the parsedData is Array of TSMenuList objects
+    if ([serviceKey isEqualToString:kSUN_FEED_SERVICE_KEY]) {
+        // for this service key, we know the parsedData is Array of TSArticle objects
         tsFeed = parsedData;
-        keyPath = [self getKeyPathByServiceKey:kFEED_SERVICE_KEY];
+        keyPath = [self getKeyPathByServiceKey:kSUN_FEED_SERVICE_KEY];
+    }
+    else if ([serviceKey isEqualToString:kTIMES_FEED_SERVICE_KEY]) {
+        // for this service key, we know the parsedData is Array of TSArticle objects
+        tsFeed = parsedData;
+        keyPath = [self getKeyPathByServiceKey:kTIMES_FEED_SERVICE_KEY];
     }
 
      NSDictionary *parsedDataDic = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -118,12 +123,14 @@ static TSFeed *internalManagedObj;
 {
     NSString *keyPath = nil;
 
-    if ([serviceKey isEqualToString:kFEED_SERVICE_KEY]) {
-        keyPath = kKEYPATH_FEED_FEED;
+    if ([serviceKey isEqualToString:kSUN_FEED_SERVICE_KEY]) {
+        keyPath = kKEYPATH_FEED_SUN;
+    }
+    else if ([serviceKey isEqualToString:kTIMES_FEED_SERVICE_KEY]) {
+        keyPath = kKEYPATH_FEED_TIMES;
     }
     
     return keyPath;
-
 }
 
 -(void) raiseErrorNotificationForHTTPError:(NSString *)errorName ServiceRequestKey:(NSString *)serviceRequestKey

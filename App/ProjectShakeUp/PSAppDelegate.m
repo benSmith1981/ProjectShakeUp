@@ -9,6 +9,7 @@
 #import "PSAppDelegate.h"
 #import "TSFeed.h"
 #import "PSViewController.h"
+#import "TSServiceKeys.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
 
@@ -23,7 +24,7 @@
     [self.window makeKeyAndVisible];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    [TSFeed getFeed:@"http://www.thesun.co.uk/sol/homepage/feeds/smartphone/topstories/"];
+    [TSFeed getFeed:kSUN_FEED_SERVICE_KEY];
     
     return YES;
 }

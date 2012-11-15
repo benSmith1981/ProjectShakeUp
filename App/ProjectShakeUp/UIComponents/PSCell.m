@@ -36,10 +36,14 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     if (self) {
         // Initialization code
         self.frame = frame;
+
         [TSLayerVisuals applyDropShadow:self];
+        [TSLayerVisuals applyRoundedCorners:self.layer corners:UIRectCornerAllCorners];
         
-        self.image.layer.borderWidth = 1.0f;
-        self.image.layer.borderColor = [UIColor blackColor].CGColor;
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
+
+        self.image.layer.borderWidth = 1.5f;
+        self.image.layer.borderColor = RGB(0, 81, 125).CGColor;
         self.image.contentMode = UIViewContentModeScaleAspectFit;
         
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];

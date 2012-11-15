@@ -73,9 +73,15 @@
                 
         Warn(@"SENDING ASYNC REQUEST FOR %@", [self.urlRequest.URL absoluteString]);
         
+        //// - This should not be done like this should use a login!!
+        NSMutableURLRequest* mutableUrlRequest = [[NSMutableURLRequest alloc] initWithURL:_url];
+        [mutableUrlRequest setValue:@"7RPejQ4YJcG4Ezm"  forHTTPHeaderField:@"X-NewsInternational-Times-Token"];
+        #warning Token Bad practice exposes the a way of getting times content
+        ////
+        
         __unsafe_unretained typeof(self) weakSelf = self;
         
-        _request = [[AFHTTPRequestOperation alloc] initWithRequest:_urlRequest];
+        _request = [[AFHTTPRequestOperation alloc] initWithRequest:mutableUrlRequest];
         
         [_request setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             

@@ -11,7 +11,8 @@
 #import "TSFeedParser.h"
 #import "TSManagedObject.h"
 
-#define kKEYPATH_FEED_FEED @"feed"
+#define kKEYPATH_FEED_SUN @"feed_sun"
+#define kKEYPATH_FEED_TIMES @"feed_times"
 
 #define FEED_UPDATE_NOTIFICATION     @"FEED_UPDATE_NOTIFICATION"
 #define FEED_HTTP_ERROR_NOTIFICATION @"FEED_HTTP_ERROR_NOTIFICATION"
@@ -30,7 +31,7 @@
 -(id)initWithFeedTitle:(NSString*) title Articles:(NSMutableArray*) articles;
 
 // static competition methods
-+(TSFeed*)getFeed:(NSString*)requestURL;
++(TSFeed*)getFeed:(NSString*)key;
 
 @end
 
