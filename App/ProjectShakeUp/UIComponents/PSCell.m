@@ -41,6 +41,8 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         [TSLayerVisuals applyRoundedCorners:self.layer corners:UIRectCornerAllCorners];
         
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
+        
+        self.title.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:12.0];
 
         self.image.layer.borderWidth = 1.5f;
         self.image.layer.borderColor = RGB(0, 81, 125).CGColor;
@@ -98,6 +100,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 - (void)load
 {
     [self.title setText:self.article.title];
+    
     NSURL* url = [NSURL URLWithString:self.article.url];
     [self.image setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     [self floatingAnimation];

@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class PSViewController;
-
 @interface PSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) PSViewController *viewController;
 
 @end

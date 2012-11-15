@@ -11,6 +11,7 @@
 #import "TSArticle.h"
 
 @interface PSDetailedViewController ()
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIWebView *story;
@@ -28,6 +29,8 @@
         // Custom initialization
         self.view.frame = frame;
         
+        self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:14.0];
+        
         self.image.contentMode = UIViewContentModeScaleAspectFit;
         self.story.scrollView.bounces = NO;
         self.story.delegate = self;
@@ -43,6 +46,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,6 +99,7 @@
     [self setImage:nil];
     [self setTitleLabel:nil];
     [self setStory:nil];
+    [self setContentView:nil];
     [super viewDidUnload];
 }
 

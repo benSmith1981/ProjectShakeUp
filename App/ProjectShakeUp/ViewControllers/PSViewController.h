@@ -10,5 +10,5 @@
 #import "PSCell.h"
 
 @interface PSViewController : UIViewController<UIGestureRecognizerDelegate, PSCellDelegate>
-- (IBAction)shakeButtonPressed:(id)sender;
+- (void)refresh;
 @end

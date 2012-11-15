@@ -13,7 +13,7 @@
 #import "PSDetailedViewController.h"
 #import "TSServiceKeys.h"
 
-static CGFloat const overHang = 60;
+static CGFloat const overHang = 45;
 
 @interface PSViewController ()
 {
@@ -28,6 +28,8 @@ static CGFloat const overHang = 60;
 @property (strong, nonatomic) NSArray* psCells;
 @property (strong, nonatomic) NSArray* articles;
 @property (strong, nonatomic) PSDetailedViewController* detailedView;
+
+- (IBAction)shakeButtonPressed:(id)sender;
 
 @end
 
@@ -157,6 +159,13 @@ static CGFloat const overHang = 60;
         if([self.articles count] > 0) {
             [self randomise];
         }
+    }
+}
+
+- (void)refresh
+{
+    for( PSCell* cell in self.psCells) {
+        [cell load];
     }
 }
 

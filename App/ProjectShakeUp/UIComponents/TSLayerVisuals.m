@@ -20,6 +20,11 @@
     maskLayer.frame = layer.bounds;
     maskLayer.path = maskPath.CGPath;
     
+    maskLayer.shadowPath = [UIBezierPath bezierPathWithRect:layer.bounds].CGPath;
+    maskLayer.shadowOffset = CGSizeMake(-5, 5);
+    maskLayer.shadowRadius = 5;
+    maskLayer.shadowOpacity = 0.5;
+    
     [layer addSublayer:maskLayer];
     layer.mask = maskLayer;
 }
