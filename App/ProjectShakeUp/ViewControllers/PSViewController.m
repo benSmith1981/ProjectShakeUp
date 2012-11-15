@@ -65,6 +65,10 @@ static CGFloat const overHang = 45;
     CGFloat topBorderY = 40;
     CGFloat bottomBorderY = 70;
     
+    if([[UIScreen mainScreen] bounds].size.height == 568) {
+        bottomBorderY = 10;
+    }
+    
     // Top Left
     PSCell* topLeftView     = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame) + borderX,
                                                                        CGRectGetMinY(self.view.frame) + topBorderY,
@@ -85,7 +89,7 @@ static CGFloat const overHang = 45;
     PSCell* bottonRightView = [[PSCell alloc] initWithFrame:CGRectMake(CGRectGetMinX(topRightView.frame),
                                                                        CGRectGetMaxY(middleView.frame) - bottomBorderY,
                                                                        size.width, size.height)];
-    
+
     self.psCells = [[NSArray alloc] initWithObjects:topLeftView, topRightView, bottomLeftView, bottonRightView, middleView, nil];
     
     for (PSCell* cell in self.psCells) {
@@ -94,12 +98,8 @@ static CGFloat const overHang = 45;
     }
 
     self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(menuSwipeHandler:)];
-    [self.contentMenuView addGestureRecognizer:self.panGesture]; // Should apply
-        
-//    NSLog(@"-->> %f", CGRectGetMinY(self.contentMenuView.frame));
-//    NSLog(@"-->> %f", CGRectGetMaxY(self.contentMenuView.frame));
+    [self.contentMenuView addGestureRecognizer:self.panGesture];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -109,7 +109,7 @@ static CGFloat const overHang = 45;
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self becomeFirstResponder];
+    [self becomeFirstResponder];    
 }
 
 - (BOOL)canBecomeFirstResponder

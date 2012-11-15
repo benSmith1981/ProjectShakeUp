@@ -29,7 +29,7 @@
         // Custom initialization
         self.view.frame = frame;
         
-        self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:14.0];
+        self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16.0];
         
         self.image.contentMode = UIViewContentModeScaleAspectFit;
         self.story.scrollView.bounces = NO;

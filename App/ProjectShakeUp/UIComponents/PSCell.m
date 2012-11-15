@@ -42,7 +42,8 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         [TSLayerVisuals applyRoundedCorners:self.layer corners:UIRectCornerAllCorners];
         [TSLayerVisuals applyRoundedCorners:self.background.layer corners:UIRectCornerAllCorners];
 
-        self.background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
+        self.layer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]].CGColor;
+        self.background.hidden = YES;
         
         self.title.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:12.0];
 
