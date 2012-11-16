@@ -31,7 +31,6 @@
         
         self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16.0];
         self.story.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
-
         
         self.image.contentMode = UIViewContentModeScaleAspectFit;
         self.story.scrollView.bounces = NO;

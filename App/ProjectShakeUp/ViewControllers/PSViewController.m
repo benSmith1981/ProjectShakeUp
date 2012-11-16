@@ -268,11 +268,13 @@ static CGFloat const overHang = 45;
 #pragma PSCellDelegate
 - (void)cellTappedWithCell:(PSCell*)cell
 {
+    [self.detailedView removeFromParentViewController];
     self.detailedView = nil;
     self.detailedView = [[PSDetailedViewController alloc] initWithFrame:cell.frame];
     [self.detailedView setArticle:cell.article];
 
     [self.view addSubview:self.detailedView.view];
+    [self addChildViewController:self.detailedView];
     
     [self.detailedView animate];
 }
