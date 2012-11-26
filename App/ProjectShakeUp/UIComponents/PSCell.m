@@ -130,6 +130,32 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
                                }];
     
     [self floatingAnimation];
+    
+    [self shake]; // Rattle the tile animation.
+}
+
+-(void)shake
+{
+//    [UIView animateWithDuration:1
+//                     animations:^(void){
+//                         for (PSCell* cell in self.psCells) {
+//                             CGRect frame = cell.frame;
+//                             frame.origin.x += 20;
+//                             frame.origin.y += 20;
+//                             cell.frame = frame;
+//                         }
+//                     }
+//                     completion:^(BOOL completed) {
+//                         [UIView animateWithDuration:1
+//                                          animations:^(void){
+//                                              for (PSCell* cell in self.psCells) {
+//                                                  CGRect frame = cell.frame;
+//                                                  frame.origin.x -= 20;
+//                                                  frame.origin.y -= 20;
+//                                                  cell.frame = frame;
+//                                              }
+//                                          }];
+//                     }];
 }
 
 + (CGSize)makeSize:(CGSize)originalSize fitInSize:(CGSize)boxSize

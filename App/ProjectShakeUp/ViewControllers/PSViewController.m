@@ -12,6 +12,7 @@
 #import "Logging.h"
 #import "PSDetailedViewController.h"
 #import "TSServiceKeys.h"
+#import "PSLoginViewController.h"
 
 static CGFloat const overHang = 45;
 
@@ -107,9 +108,23 @@ static CGFloat const overHang = 45;
     // Dispose of any resources that can be recreated.
 }
 
+static BOOL once = YES;
+
+- (void)showLoginView
+{
+    once = NO;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self becomeFirstResponder];    
+    [self becomeFirstResponder];
+    
+    if(!once) {
+        // If not logged in via facebook
+        PSLoginViewController *loginScreen = [PSLoginViewController new];
+        [self presentModalViewController:loginScreen animated:NO];
+        once = YES;
+    }
 }
 
 - (BOOL)canBecomeFirstResponder
@@ -226,7 +241,7 @@ static CGFloat const overHang = 45;
 #pragma mark
 #pragma Random Selection
 - (void)randomise
-{
+{    
     NSUInteger totalArticles = [self.articles count];
     NSMutableArray *randomNumbers = [[NSMutableArray alloc] initWithCapacity:5];
     
@@ -262,7 +277,6 @@ static CGFloat const overHang = 45;
         [cell load];
     }
 }
-
 
 #pragma mark
 #pragma PSCellDelegate

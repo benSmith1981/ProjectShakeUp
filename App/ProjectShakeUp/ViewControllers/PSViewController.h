@@ -11,4 +11,5 @@
 
 @interface PSViewController : UIViewController<UIGestureRecognizerDelegate, PSCellDelegate>
 - (void)refresh;
+- (void)showLoginView;
 @end
