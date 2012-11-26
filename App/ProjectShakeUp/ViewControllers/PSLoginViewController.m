@@ -65,8 +65,7 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user
 {
-    NSLog(@"%@", [user objectForKey:@"email"]);
-    NSString* labelFirstName = [NSString stringWithFormat:@"Hello %@!", user.first_name];    
+    NSString* labelFirstName = [NSString stringWithFormat:@"Hello %@! \n %@", user.first_name, [user objectForKey:@"email"]];
                                 
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:labelFirstName
                                                       message:@"Logged in with facebook"
