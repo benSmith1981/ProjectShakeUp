@@ -12,6 +12,7 @@
 
 @interface PSLoginViewController () <FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *close;
+@property (weak, nonatomic) IBOutlet UIView *loginView;
 - (IBAction)closeButton:(id)sender;
 @end
 
@@ -36,13 +37,15 @@
     self.view.backgroundColor = RGB(0, 81, 125);
     
     // Create Login View so that the app will be granted "status_update" permission.
-    FBLoginView *loginview = [FBLoginView new];
-    loginview.frame = CGRectOffset(loginview.frame, 85, 250);
-    loginview.delegate = self;
+    FBLoginView *login = [FBLoginView new];
+    login.delegate = self;
     
-    [self.view addSubview:loginview];
+    NSArray *permissions = [NSArray arrayWithObjects:@"email", nil];
+    login.publishPermissions = permissions;
+    login.defaultAudience = FBSessionDefaultAudienceEveryone;
     
-    [loginview sizeToFit];
+    [self.loginView addSubview:login];
+    [login sizeToFit];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,11 +82,13 @@
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
+    self.close.hidden = YES;
 }
 
 - (void)viewDidUnload
 {
     [self setClose:nil];
+    [self setLoginView:nil];
     [super viewDidUnload];
 }
 @end

@@ -44,10 +44,7 @@
     [TSFeed getFeed:kSUN_FEED_SERVICE_KEY];
     
     // See if we have a valid token for the current state.
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-        // To-do, show logged in view
-    } else {
-        // No, display the login page.
+    if (FBSession.activeSession.state != FBSessionStateCreatedTokenLoaded) {
         [self.viewController showLoginView];
     }
     
