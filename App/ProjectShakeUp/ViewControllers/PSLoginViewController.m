@@ -65,6 +65,7 @@
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user
 {
+    NSLog(@"%@", [user objectForKey:@"email"]);
     NSString* labelFirstName = [NSString stringWithFormat:@"Hello %@!", user.first_name];    
                                 
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:labelFirstName
@@ -75,8 +76,6 @@
     [message show];
     
     Debug(@"%@", labelFirstName);
-    
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
