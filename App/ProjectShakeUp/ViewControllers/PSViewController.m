@@ -13,6 +13,7 @@
 #import "PSDetailedViewController.h"
 #import "TSServiceKeys.h"
 #import "PSLoginViewController.h"
+#import "PSConstants.h"
 
 static CGFloat const overHang = 45;
 
@@ -43,7 +44,7 @@ static CGFloat const overHang = 45;
 {
     [super viewDidLoad];
     
-    self.contentMenuView.backgroundColor = RGB(0, 81, 125);
+    self.contentMenuView.backgroundColor = defaultBlue;
     self.toolMenuView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"settingsscreen.png"]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self

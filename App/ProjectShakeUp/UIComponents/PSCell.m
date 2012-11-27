@@ -10,6 +10,7 @@
 #import "TSArticle.h"
 #import "UIImageView+AFNetworking.h"
 #import "TSLayerVisuals.h"
+#import "PSConstants.h"
 #import <QuartzCore/QuartzCore.h>
 
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
@@ -35,7 +36,6 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
 {
     self = [[[NSBundle mainBundle] loadNibNamed:@"PSCell" owner:self options:nil] objectAtIndex:0];
     if (self) {
-        // Initialization code
         self.frame = frame;
 
         [TSLayerVisuals applyDropShadow:self];
@@ -43,16 +43,16 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
         [TSLayerVisuals applyRoundedCorners:self.background.layer corners:UIRectCornerAllCorners];
         
         CGRect frame = self.image.frame;
-        frame.size = [[PSCell class] makeSize:[UIImage imageNamed:@"placeholder.jpg"].size fitInSize:self.image.frame.size];
+        frame.size = [[PSCell class] makeSize:[UIImage imageNamed:kPLACEHOLDER_IMAGE].size fitInSize:self.image.frame.size];
         self.image.frame = frame;
 
-        self.layer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]].CGColor;
+        self.layer.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:kWHITE_PAPER_IMAGE]].CGColor;
         self.background.hidden = YES;
         
-        self.title.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:12.0];
+        self.title.font = [UIFont fontWithName:kTITLE_FONT size:12.0];
 
         self.image.layer.borderWidth = 1.5f;
-        self.image.layer.borderColor = RGB(0, 81, 125).CGColor;
+        self.image.layer.borderColor = defaultBlue.CGColor;
         self.image.contentMode = UIViewContentModeScaleAspectFit;
         
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
@@ -111,7 +111,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180/M_PI;};
     self.image.frame = self.image.frame = CGRectMake(5, 5, 108, 81);
     
     [self.image setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.article.url]]
-                      placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]
+                      placeholderImage:[UIImage imageNamed:kPLACEHOLDER_IMAGE]
                                success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
                                    
                                    CGRect frame = self.image.frame;

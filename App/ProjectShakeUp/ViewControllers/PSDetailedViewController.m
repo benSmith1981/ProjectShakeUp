@@ -9,6 +9,7 @@
 #import "PSDetailedViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "TSArticle.h"
+#import "PSConstants.h"
 
 @interface PSDetailedViewController ()
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -29,8 +30,8 @@
         // Custom initialization
         self.view.frame = frame;
         
-        self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:16.0];
-        self.story.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
+        self.titleLabel.font = [UIFont fontWithName:kTITLE_FONT size:16.0];
+        self.story.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:kWHITE_PAPER_IMAGE]];
         
         self.image.contentMode = UIViewContentModeScaleAspectFit;
         self.story.scrollView.bounces = NO;
@@ -47,7 +48,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white-paper-texture-600x400.jpeg"]];
+    self.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:kWHITE_PAPER_IMAGE]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,7 +62,7 @@
     [self.titleLabel setText:self.article.title];
 
     [self.image setImageWithURL:[NSURL URLWithString:self.article.url]
-               placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+               placeholderImage:[UIImage imageNamed:kPLACEHOLDER_IMAGE]];
     
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Article" ofType:@"bundle"];
     NSURL *url = [[NSBundle bundleWithPath:bundlePath] URLForResource:@"article" withExtension:@"html"];
@@ -106,13 +107,6 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    CGRect frame = self.image.frame;
-//    
-//    CGFloat y = CGRectGetMaxY(self.view.frame) - CGRectGetMaxY(self.image.frame);
-//    
-//    frame.origin.y = y + 30;
-//    
-//    self.story.frame = frame;
 }
 
 @end

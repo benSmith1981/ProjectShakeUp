@@ -12,6 +12,7 @@
 		C125A85F16550E2D0017F501 /* arrowbottomrgt.png in Resources */ = {isa = PBXBuildFile; fileRef = C125A85B16550E2D0017F501 /* arrowbottomrgt.png */; };
 		C125A86016550E2D0017F501 /* arrowtoplft.png in Resources */ = {isa = PBXBuildFile; fileRef = C125A85C16550E2D0017F501 /* arrowtoplft.png */; };
 		C125A86116550E2D0017F501 /* arrowtopright.png in Resources */ = {isa = PBXBuildFile; fileRef = C125A85D16550E2D0017F501 /* arrowtopright.png */; };
+		C1272D271664CCD90094F7FB /* PSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = C1272D261664CCD90094F7FB /* PSConstants.m */; };
 		C1742A7C1651386B00407C0A /* PSDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1742A771651386B00407C0A /* PSDetailedViewController.m */; };
 		C1742A7D1651386B00407C0A /* PSDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1742A781651386B00407C0A /* PSDetailedViewController.xib */; };
 		C1742A7E1651386B00407C0A /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1742A7A1651386B00407C0A /* PSViewController.m */; };
@@ -89,6 +90,8 @@
 		C125A85B16550E2D0017F501 /* arrowbottomrgt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowbottomrgt.png; sourceTree = "<group>"; };
 		C125A85C16550E2D0017F501 /* arrowtoplft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowtoplft.png; sourceTree = "<group>"; };
 		C125A85D16550E2D0017F501 /* arrowtopright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowtopright.png; sourceTree = "<group>"; };
+		C1272D251664CCD90094F7FB /* PSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSConstants.h; sourceTree = "<group>"; };
+		C1272D261664CCD90094F7FB /* PSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSConstants.m; sourceTree = "<group>"; };
 		C1742A761651386B00407C0A /* PSDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDetailedViewController.h; sourceTree = "<group>"; };
 		C1742A771651386B00407C0A /* PSDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDetailedViewController.m; sourceTree = "<group>"; };
 		C1742A781651386B00407C0A /* PSDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSDetailedViewController.xib; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				C1FCE5A8164C1528002E0401 /* InfoPlist.strings */,
 				C1FCE5AB164C1528002E0401 /* main.m */,
 				C1FCE5AD164C1528002E0401 /* ProjectShakeUp-Prefix.pch */,
+				C1272D251664CCD90094F7FB /* PSConstants.h */,
+				C1272D261664CCD90094F7FB /* PSConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				C1742A7E1651386B00407C0A /* PSViewController.m in Sources */,
 				C1AA78E016526CA100CA7973 /* PSFeedUrlFactory.m in Sources */,
 				C1EFBF8A16639B9E0030E0CA /* PSLoginViewController.m in Sources */,
+				C1272D271664CCD90094F7FB /* PSConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
